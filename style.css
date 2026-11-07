@@ -92,7 +92,7 @@ section[id]{scroll-margin-top:80px}
 
 /* ---------- hero collage ---------- */
 .hero{padding:56px var(--pad) 72px;position:relative}
-.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:start}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:36px;align-items:start}
 .kicker{
   display:inline-flex;align-items:center;gap:10px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;
   border:2px solid var(--ink);padding:6px 12px;background:var(--card);box-shadow:var(--shadow-sm);
@@ -128,9 +128,10 @@ section[id]{scroll-margin-top:80px}
 .index-card .ic-body{padding:16px 18px 20px;font-size:14px;line-height:1.8;color:var(--ink-soft)}
 .index-card .ic-body strong{color:var(--ink)}
 .index-card .ic-punch{
-  position:absolute;left:50%;top:8px;width:16px;height:16px;border-radius:50%;
-  background:var(--paper-2);border:2px solid var(--ink);transform:translateX(-50%);
+  position:absolute;left:10px;top:50%;width:14px;height:14px;border-radius:50%;
+  background:var(--paper-2);border:2px solid var(--ink);transform:translateY(-50%);
 }
+.index-card .ic-head,.index-card .ic-body{padding-left:36px}
 .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
 .btn{
   display:inline-flex;align-items:center;gap:10px;border:2px solid var(--ink);
@@ -148,16 +149,16 @@ section[id]{scroll-margin-top:80px}
 .pola-wrap{position:relative;padding-top:20px}
 .polaroid{
   background:var(--card);border:2px solid var(--ink);box-shadow:var(--shadow);
-  padding:14px 14px 44px;transform:rotate(2.5deg);position:relative;max-width:340px;margin-left:auto;
+  padding:14px 14px 44px;transform:rotate(2.5deg);position:relative;max-width:340px;margin-left:auto;z-index:1;
 }
 .polaroid .tape{
-  position:absolute;top:-14px;left:50%;width:110px;height:28px;transform:translateX(-50%) rotate(-3deg);
+  position:absolute;top:-14px;left:36%;width:110px;height:28px;transform:translateX(-50%) rotate(-3deg);
   background:rgba(255,197,61,.75);border-left:2px dashed rgba(34,33,58,.25);border-right:2px dashed rgba(34,33,58,.25);
 }
 :root[data-theme="dark"] .polaroid .tape{background:rgba(255,197,61,.5)}
 .polaroid img{width:100%;aspect-ratio:1/1;object-fit:cover;border:2px solid var(--ink)}
 .polaroid .cap{font-family:'Caveat','Segoe Script','Brush Script MT',cursive;font-size:24px;text-align:center;margin-top:10px;color:var(--ink)}
-.polaroid.small{position:absolute;left:0;top:60%;width:220px;transform:rotate(-4deg);padding-bottom:36px}
+.polaroid.small{position:absolute;left:-12px;top:48%;width:210px;transform:rotate(-4deg);padding-bottom:36px;z-index:2}
 .polaroid.small img{aspect-ratio:4/3}
 .stamp{
   position:absolute;display:inline-block;border:3px solid var(--tomato);color:var(--tomato);
@@ -170,9 +171,9 @@ section[id]{scroll-margin-top:80px}
 .stamp.slam{animation:slam .5s var(--ease) both}
 @keyframes slam{0%{transform:rotate(-12deg) scale(2.2);opacity:0}70%{transform:rotate(-12deg) scale(.94);opacity:1}100%{transform:rotate(-12deg) scale(1)}}
 .coffee{
-  position:absolute;width:96px;height:96px;border-radius:50%;
-  border:10px solid rgba(122,84,40,.18);pointer-events:none;
-  right:6%;bottom:-20px;transform:rotate(10deg);
+  position:absolute;width:84px;height:84px;border-radius:50%;
+  border:9px solid rgba(122,84,40,.16);pointer-events:none;
+  left:2%;bottom:-34px;transform:rotate(10deg);z-index:0;
 }
 
 /* stats as catalogue strip */
@@ -185,6 +186,7 @@ section[id]{scroll-margin-top:80px}
 .strip .num{font-family:'Fraunces',Georgia,'Times New Roman',serif;font-weight:900;font-size:38px;line-height:1}
 .strip .num span{color:var(--tomato)}
 .strip .lab{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-top:6px}
+@media(min-width:901px) and (max-width:1150px){.polaroid.small{position:static;transform:rotate(-2deg);margin:26px auto 0;width:250px}.pola-wrap{padding-bottom:6px}}
 @media(max-width:900px){.hero-grid{grid-template-columns:1fr}.polaroid{margin:20px auto 0}.polaroid.small{position:static;transform:rotate(-2deg);margin:18px auto 0}.strip{grid-template-columns:repeat(2,1fr)}.strip .cell{border-bottom:2px dashed var(--line)}}
 
 /* tape divider */
