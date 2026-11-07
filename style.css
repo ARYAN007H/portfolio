@@ -146,10 +146,15 @@ section[id]{scroll-margin-top:80px}
 .btn.cascade{transform:rotate(1deg)}
 
 /* polaroid stack */
-.pola-wrap{position:relative;padding-top:20px}
+.pola-wrap{
+  position:relative;padding-top:20px;
+  width:min(340px,100%);margin-left:auto;
+  display:flex;flex-direction:column;align-items:flex-start;
+}
 .polaroid{
   background:var(--card);border:2px solid var(--ink);box-shadow:var(--shadow);
-  padding:14px 14px 44px;transform:rotate(2.5deg);position:relative;max-width:340px;margin-left:auto;z-index:1;
+  padding:14px 14px 44px;transform:rotate(2.5deg);position:relative;
+  width:100%;max-width:340px;z-index:1;
 }
 .polaroid .tape{
   position:absolute;top:-14px;left:36%;width:110px;height:28px;transform:translateX(-50%) rotate(-3deg);
@@ -158,14 +163,14 @@ section[id]{scroll-margin-top:80px}
 :root[data-theme="dark"] .polaroid .tape{background:rgba(255,197,61,.5)}
 .polaroid img{width:100%;aspect-ratio:1/1;object-fit:cover;border:2px solid var(--ink)}
 .polaroid .cap{font-family:'Caveat','Segoe Script','Brush Script MT',cursive;font-size:24px;text-align:center;margin-top:10px;color:var(--ink)}
-.polaroid.small{position:absolute;left:-12px;top:29%;width:190px;transform:rotate(-4deg);padding-bottom:36px;z-index:2}
+.polaroid.small{position:relative;width:190px;margin:36px 0 0 -14px;transform:rotate(-4deg);padding-bottom:36px;z-index:2}
 .polaroid.small .cap{font-size:20px;white-space:nowrap}
 .polaroid.small img{aspect-ratio:4/3}
 .stamp{
   position:absolute;display:inline-block;border:3px solid var(--tomato);color:var(--tomato);
   font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:14px;
   padding:8px 14px;border-radius:6px;transform:rotate(-12deg);
-  background:var(--card);opacity:.94;
+  background:var(--card);opacity:.94;z-index:3;
 }
 .stamp.cobalt{border-color:var(--cobalt);color:var(--cobalt)}
 .stamp.mustard{border-color:var(--ink);background:var(--mustard);color:var(--ink)}
@@ -183,8 +188,14 @@ section[id]{scroll-margin-top:80px}
 .strip .num{font-family:'Fraunces',Georgia,'Times New Roman',serif;font-weight:900;font-size:38px;line-height:1}
 .strip .num span{color:var(--tomato)}
 .strip .lab{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-top:6px}
-@media(min-width:901px) and (max-width:1150px){.polaroid.small{width:175px;left:0;top:54%;padding-bottom:30px}}
-@media(max-width:900px){.hero-grid{grid-template-columns:1fr}.polaroid{margin:20px auto 0}.polaroid.small{position:static;transform:rotate(-2deg);margin:18px auto 0}.strip{grid-template-columns:repeat(2,1fr)}.strip .cell{border-bottom:2px dashed var(--line)}}
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr}
+  .pola-wrap{margin:24px auto 0}
+  .polaroid{margin:0}
+  .polaroid.small{align-self:center;width:190px;margin:30px 0 0;transform:rotate(-2deg)}
+  .strip{grid-template-columns:repeat(2,1fr)}
+  .strip .cell{border-bottom:2px dashed var(--line)}
+}
 
 /* tape divider */
 .tape-strip{
