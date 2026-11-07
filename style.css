@@ -158,7 +158,8 @@ section[id]{scroll-margin-top:80px}
 :root[data-theme="dark"] .polaroid .tape{background:rgba(255,197,61,.5)}
 .polaroid img{width:100%;aspect-ratio:1/1;object-fit:cover;border:2px solid var(--ink)}
 .polaroid .cap{font-family:'Caveat','Segoe Script','Brush Script MT',cursive;font-size:24px;text-align:center;margin-top:10px;color:var(--ink)}
-.polaroid.small{position:absolute;left:-12px;top:48%;width:210px;transform:rotate(-4deg);padding-bottom:36px;z-index:2}
+.polaroid.small{position:absolute;left:-12px;top:29%;width:190px;transform:rotate(-4deg);padding-bottom:36px;z-index:2}
+.polaroid.small .cap{font-size:20px;white-space:nowrap}
 .polaroid.small img{aspect-ratio:4/3}
 .stamp{
   position:absolute;display:inline-block;border:3px solid var(--tomato);color:var(--tomato);
