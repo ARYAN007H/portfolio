@@ -1,0 +1,11 @@
+/* Self-hosted — latin only. Identical rendering on file:// and GitHub Pages. */
+@font-face{font-family:'Caveat';font-style:normal;font-weight:600;font-display:swap;src:url('assets/fonts/caveat-normal-600.woff2') format('woff2');}
+@font-face{font-family:'Caveat';font-style:normal;font-weight:700;font-display:swap;src:url('assets/fonts/caveat-normal-700.woff2') format('woff2');}
+@font-face{font-family:'Fraunces';font-style:italic;font-weight:400;font-display:swap;src:url('assets/fonts/fraunces-italic-400.woff2') format('woff2');}
+@font-face{font-family:'Fraunces';font-style:italic;font-weight:900;font-display:swap;src:url('assets/fonts/fraunces-italic-900.woff2') format('woff2');}
+@font-face{font-family:'Fraunces';font-style:normal;font-weight:400;font-display:swap;src:url('assets/fonts/fraunces-normal-400.woff2') format('woff2');}
+@font-face{font-family:'Fraunces';font-style:normal;font-weight:600;font-display:swap;src:url('assets/fonts/fraunces-normal-600.woff2') format('woff2');}
+@font-face{font-family:'Fraunces';font-style:normal;font-weight:900;font-display:swap;src:url('assets/fonts/fraunces-normal-900.woff2') format('woff2');}
+@font-face{font-family:'Space Mono';font-style:italic;font-weight:400;font-display:swap;src:url('assets/fonts/spacemono-italic-400.woff2') format('woff2');}
+@font-face{font-family:'Space Mono';font-style:normal;font-weight:400;font-display:swap;src:url('assets/fonts/spacemono-normal-400.woff2') format('woff2');}
+@font-face{font-family:'Space Mono';font-style:normal;font-weight:700;font-display:swap;src:url('assets/fonts/spacemono-normal-700.woff2') format('woff2');}
