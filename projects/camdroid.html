@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>try{if(localStorage.getItem("aryan-v2-theme")==="dark")document.documentElement.dataset.theme="dark"}catch(e){}</script>
+<title>CamDroid — Spec Sheet · Aryan™ Press</title>
+<meta name="description" content="Turn your Android device into a high-performance, ultra-low-latency virtual webcam &amp; microphone for Linux.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="../style.css">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+</head>
+<body>
+<header class="masthead">
+  <a class="mast-logo" href="../index.html">Aryan<em>™</em> Press</a>
+  <div class="mast-meta">
+    <span>Portfolio V2 — Paper Edition</span>
+    <span id="clock">— IST</span>
+    <span class="price">Price: Free</span>
+    <button class="theme-btn" id="themeBtn" aria-pressed="false">☾ lights off</button>
+  </div>
+</header>
+<nav class="navbar" aria-label="Primary">
+  <a href="../index.html">Front page</a>
+  <a href="../index.html#shelf">The catalogue</a>
+  <a href="../index.html#journal">Journal</a>
+  <a href="../index.html#on-shelf">On the shelf</a>
+  <a class="hot" href="https://github.com/ARYAN007H" target="_blank" rel="noopener">GitHub ↗</a>
+</nav>
+
+<section class="spec-hero">
+  <a class="back" href="../index.html#shelf">← Back to the drawer</a>
+  <p class="spec-kicker">Spec sheet № 04 / 12 · Video · Android → Linux</p>
+  <h1 class="spec-title">CamDroid</h1>
+  <p class="spec-tagline">Turn your Android device into a high-performance, ultra-low-latency virtual webcam &amp; microphone for Linux.</p>
+  <div class="spec-actions">
+    <a class="btn primary" href="https://github.com/ARYAN007H/CamDroid" target="_blank" rel="noopener">GitHub ↗</a>
+    
+  </div>
+  <span class="stamp">shipped ✓</span>
+  <div class="specs">
+    <div class="srow">
+      <div class="spec"><div class="k">Language</div><div class="v">Kotlin</div></div>
+      <div class="spec"><div class="k">Stars</div><div class="v">★ 2</div></div>
+      <div class="spec"><div class="k">Latest release</div><div class="v">v2.1.0</div></div>
+      <div class="spec"><div class="k">Updated</div><div class="v">Nov 2026</div></div>
+    </div>
+  </div>
+</section>
+
+<main class="spec-body" id="content">
+  <div>
+    <h2>About <em>this one</em></h2>
+    <p class="reveal">CamDroid turns the phone already in your pocket into a studio-grade webcam. An Android app (Kotlin + Compose) streams to a Linux companion (Rust + FFmpeg) that plugs into v4l2loopback — so it shows up as a real camera in every app.</p>
+<p class="reveal">Near-zero latency (~30ms), up to 4K at 60 FPS, AAC audio. Studio stage controls and protocol hardening landed in v2.1.0. Grab the APK for your phone and the .deb/.rpm for your desktop.</p>
+    <h2 style="margin-top:40px">What's <em>in it</em></h2>
+    <ul class="feat"><li class="reveal">~30ms latency · up to 4K @ 60 FPS · AAC microphone</li>
+<li class="reveal">v4l2loopback virtual camera — works in OBS, Meet, Zoom, everything</li>
+<li class="reveal">Studio stage controls &amp; hardened streaming protocol</li>
+<li class="reveal">Android APK + Linux .deb / .rpm in one release</li></ul>
+    <h2 style="margin-top:40px">Made <em>with</em></h2>
+    <div class="chips"><span class="chip">Kotlin</span><span class="chip">Jetpack Compose</span><span class="chip">Rust</span><span class="chip">FFmpeg</span><span class="chip">v4l2loopback</span></div>
+    <p style="margin-top:28px"><a class="btn" href="https://github.com/ARYAN007H/CamDroid" target="_blank" rel="noopener">Read the full README ↗</a></p>
+  </div>
+  <aside>
+    <div class="slips" id="download">
+      <h3>✂ Take one home</h3>
+      <p class="sub">Latest: v2.1.0 · 5 Nov 2026. Tear off what you need.</p>
+      <a class="slip" href="https://github.com/ARYAN007H/CamDroid/releases/download/v2.1.0/CamDroid-2.1.0-android.apk" download><span>Android · APK</span><span class="dl">↓ take</span></a>
+<a class="slip" href="https://github.com/ARYAN007H/CamDroid/releases/download/v2.1.0/CamDroid_2.1.0_amd64.deb" download><span>Linux · Debian .deb</span><span class="dl">↓ take</span></a>
+<a class="slip" href="https://github.com/ARYAN007H/CamDroid/releases/download/v2.1.0/CamDroid-2.1.0-1.x86_64.rpm" download><span>Linux · Fedora .rpm</span><span class="dl">↓ take</span></a>
+<a class="slip all" href="https://github.com/ARYAN007H/CamDroid/releases" target="_blank" rel="noopener"><span>All releases &amp; notes</span><span class="dl">↗ GitHub</span></a>
+      <p class="fine">1 release(s) · latest v2.1.0 (5 Nov 2026)<br>Source: https://github.com/ARYAN007H/CamDroid</p>
+    </div>
+  </aside>
+</main>
+
+<section class="prints">
+  <div class="sec-head reveal">
+    <div>
+      <p class="sec-kicker">Prints</p>
+      <h2 class="sec-title">Interface preview</h2>
+    </div>
+    <p class="sec-desc">Click a print to hold it up close. Real captures where they exist; mocks are labelled.</p>
+  </div>
+  <div class="print-grid">
+<figure class="print reveal"><button data-full="../assets/screenshots/camdroid/viewfinder.svg" aria-label="Enlarge: Viewfinder — interface mock"><img src="../assets/screenshots/camdroid/viewfinder.svg" alt="Viewfinder — interface mock" loading="lazy" decoding="async"></button><figcaption><span>Viewfinder — interface mock</span><span class="x">⤢</span></figcaption></figure>
+<figure class="print reveal"><button data-full="../assets/screenshots/camdroid/companion.svg" aria-label="Enlarge: Companion log — interface mock"><img src="../assets/screenshots/camdroid/companion.svg" alt="Companion log — interface mock" loading="lazy" decoding="async"></button><figcaption><span>Companion log — interface mock</span><span class="x">⤢</span></figcaption></figure>
+  </div>
+</section>
+
+<a class="next-card" href="musico.html">
+  <span class="k">Next card in the drawer →</span>
+  <span class="n"><span>Musico</span><span>↗</span></span>
+</a>
+
+<footer class="colophon">
+  <p class="end">CamDroid<em>.</em></p>
+  <div class="barcode" aria-hidden="true"></div>
+  <div class="col-links">
+    <a class="btn cobalt" href="https://github.com/ARYAN007H" target="_blank" rel="noopener">GitHub ↗</a>
+    <a class="btn" href="../index.html">← Full catalogue</a>
+  </div>
+  <div class="fine">
+    <span>© <span data-year>2026</span> Aryan™ Press · CamDroid</span>
+    <span>Portfolio V2 — Paper Edition</span>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Print viewer"><button class="lightbox-x" aria-label="Close">×</button><img alt="Print enlarged"><p class="lightbox-cap"></p></div>
+<script src="../script.js"></script>
+</body>
+</html>

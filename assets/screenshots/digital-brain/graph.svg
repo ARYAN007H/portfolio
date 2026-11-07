@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-label="DIGITAL BRAIN — CONNECTIONS">
+<rect width="1200" height="800" rx="24" fill="#121218"/>
+<rect x="1" y="1" width="1198" height="798" rx="23" fill="none" stroke="#2A2A33" stroke-width="2"/>
+<circle cx="44" cy="44" r="10" fill="#FF4A1C"/><circle cx="78" cy="44" r="10" fill="#3A3A44"/><circle cx="112" cy="44" r="10" fill="#3A3A44"/>
+<text x="150" y="52" fill="#9A9AA3" font-family="monospace" font-size="20" letter-spacing="3">DIGITAL BRAIN — CONNECTIONS</text>
+
+<circle cx="600" cy="400" r="46" fill="#F43F5E"/>
+<text x="600" y="408" fill="#0B0B0F" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">YOU</text>
+<circle cx="300" cy="250" r="36" fill="#25252F" stroke="#F43F5E" stroke-width="2"/><text x="300" y="256" fill="#F4EFE6" font-family="monospace" font-size="15" text-anchor="middle">CHAT A</text>
+<circle cx="900" cy="250" r="36" fill="#25252F" stroke="#F43F5E" stroke-width="2"/><text x="900" y="256" fill="#F4EFE6" font-family="monospace" font-size="15" text-anchor="middle">CHAT B</text>
+<circle cx="300" cy="550" r="36" fill="#25252F" stroke="#9A9AA3" stroke-width="2"/><text x="300" y="556" fill="#F4EFE6" font-family="monospace" font-size="15" text-anchor="middle">NOTES</text>
+<circle cx="900" cy="550" r="36" fill="#25252F" stroke="#9A9AA3" stroke-width="2"/><text x="900" y="556" fill="#F4EFE6" font-family="monospace" font-size="15" text-anchor="middle">EMAIL</text>
+<circle cx="600" cy="620" r="36" fill="#25252F" stroke="#FF4A1C" stroke-width="2"/><text x="600" y="626" fill="#F4EFE6" font-family="monospace" font-size="13" text-anchor="middle">LINK</text>
+<line x1="600" y1="400" x2="300" y2="250" stroke="#F43F5E" stroke-width="2" stroke-dasharray="8 6"/><line x1="600" y1="400" x2="900" y2="250" stroke="#F43F5E" stroke-width="2" stroke-dasharray="8 6"/>
+<line x1="600" y1="400" x2="300" y2="550" stroke="#9A9AA3" stroke-width="2"/><line x1="600" y1="400" x2="900" y2="550" stroke="#9A9AA3" stroke-width="2"/>
+<line x1="600" y1="400" x2="600" y2="620" stroke="#FF4A1C" stroke-width="3"/>
+<text x="60" y="150" fill="#F4EFE6" font-family="sans-serif" font-size="26" font-weight="bold">LOCAL-FIRST KNOWLEDGE GRAPH</text>
+<text x="60" y="190" fill="#9A9AA3" font-family="monospace" font-size="18">connections built on your machine · nothing leaves</text>
+
+</svg>

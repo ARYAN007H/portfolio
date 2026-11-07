@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-label="CAMDROID — COMPANION">
+<rect width="1200" height="800" rx="24" fill="#121218"/>
+<rect x="1" y="1" width="1198" height="798" rx="23" fill="none" stroke="#2A2A33" stroke-width="2"/>
+<circle cx="44" cy="44" r="10" fill="#FF4A1C"/><circle cx="78" cy="44" r="10" fill="#3A3A44"/><circle cx="112" cy="44" r="10" fill="#3A3A44"/>
+<text x="150" y="52" fill="#9A9AA3" font-family="monospace" font-size="20" letter-spacing="3">CAMDROID — COMPANION</text>
+
+<rect x="60" y="110" width="1080" height="360" rx="16" fill="#0B0B0F" stroke="#2A2A33" stroke-width="2"/>
+<text x="90" y="160" fill="#4ADE80" font-family="monospace" font-size="19">$ camdroid --device /dev/video0</text>
+<text x="90" y="205" fill="#9A9AA3" font-family="monospace" font-size="19">✓ connected · h264 · 3840×2160@60</text>
+<text x="90" y="250" fill="#9A9AA3" font-family="monospace" font-size="19">✓ audio · aac 128kbps · 48kHz</text>
+<text x="90" y="295" fill="#FF4A1C" font-family="monospace" font-size="19">→ streaming to v4l2loopback</text>
+<text x="90" y="340" fill="#9A9AA3" font-family="monospace" font-size="19">latency p50 28ms · p95 34ms · dropped 0</text>
+<text x="90" y="385" fill="#F4EFE6" font-family="monospace" font-size="19">● all apps see /dev/video0 as a real camera</text>
+<rect x="60" y="510" width="340" height="200" rx="16" fill="#0B0B0F" stroke="#2A2A33" stroke-width="2"/>
+<text x="90" y="560" fill="#F4EFE6" font-family="sans-serif" font-size="22" font-weight="bold">ANDROID APP</text>
+<text x="90" y="600" fill="#9A9AA3" font-family="monospace" font-size="18">Kotlin · Compose</text>
+<text x="90" y="640" fill="#9A9AA3" font-family="monospace" font-size="18">CameraX stream</text>
+<rect x="430" y="510" width="340" height="200" rx="16" fill="#0B0B0F" stroke="#2A2A33" stroke-width="2"/>
+<text x="460" y="560" fill="#F4EFE6" font-family="sans-serif" font-size="22" font-weight="bold">LINUX COMPANION</text>
+<text x="460" y="600" fill="#9A9AA3" font-family="monospace" font-size="18">Rust · FFmpeg</text>
+<text x="460" y="640" fill="#9A9AA3" font-family="monospace" font-size="18">v4l2loopback driver</text>
+<rect x="800" y="510" width="340" height="200" rx="16" fill="#FF4A1C"/>
+<text x="970" y="580" fill="#0B0B0F" font-family="sans-serif" font-size="44" font-weight="bold" text-anchor="middle">30ms</text>
+<text x="970" y="620" fill="#0B0B0F" font-family="monospace" font-size="18" text-anchor="middle">NEAR-ZERO LATENCY</text>
+<text x="970" y="660" fill="#0B0B0F" font-family="monospace" font-size="18" text-anchor="middle">v2.1.0</text>
+
+</svg>

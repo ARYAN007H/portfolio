@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-label="MUSICO — PLAYER">
+<rect width="1200" height="800" rx="24" fill="#121218"/>
+<rect x="1" y="1" width="1198" height="798" rx="23" fill="none" stroke="#2A2A33" stroke-width="2"/>
+<circle cx="44" cy="44" r="10" fill="#FF4A1C"/><circle cx="78" cy="44" r="10" fill="#3A3A44"/><circle cx="112" cy="44" r="10" fill="#3A3A44"/>
+<text x="150" y="52" fill="#9A9AA3" font-family="monospace" font-size="20" letter-spacing="3">MUSICO — PLAYER</text>
+
+<circle cx="240" cy="400" r="150" fill="#0B0B0F" stroke="#EC4899" stroke-width="4"/>
+<circle cx="240" cy="400" r="110" fill="none" stroke="#25252F" stroke-width="2"/><circle cx="240" cy="400" r="70" fill="none" stroke="#25252F" stroke-width="2"/>
+<circle cx="240" cy="400" r="26" fill="#EC4899"/>
+<text x="450" y="250" fill="#F4EFE6" font-family="sans-serif" font-size="40" font-weight="bold">NOW PLAYING</text>
+<text x="450" y="300" fill="#9A9AA3" font-family="monospace" font-size="22">artist — track title · 3:42</text>
+<rect x="450" y="340" width="600" height="12" rx="6" fill="#25252F"/><rect x="450" y="340" width="380" height="12" rx="6" fill="#EC4899"/>
+<rect x="450" y="390" width="120" height="54" rx="27" fill="#EC4899"/><text x="510" y="425" fill="#0B0B0F" font-family="sans-serif" font-size="24" font-weight="bold" text-anchor="middle">▶</text>
+<rect x="600" y="390" width="54" height="54" rx="27" fill="none" stroke="#9A9AA3" stroke-width="2"/><text x="627" y="425" fill="#9A9AA3" font-family="sans-serif" font-size="22" text-anchor="middle">⏮</text>
+<rect x="670" y="390" width="54" height="54" rx="27" fill="none" stroke="#9A9AA3" stroke-width="2"/><text x="697" y="425" fill="#9A9AA3" font-family="sans-serif" font-size="22" text-anchor="middle">⏭</text>
+<text x="450" y="500" fill="#9A9AA3" font-family="monospace" font-size="19">LIBRARY · 1,248 tracks · offline-first</text>
+<text x="450" y="545" fill="#9A9AA3" font-family="monospace" font-size="19">RUST-NATIVE · LINUX</text>
+<rect x="60" y="620" width="1080" height="90" rx="14" fill="#0B0B0F" stroke="#2A2A33" stroke-width="2"/>
+<text x="90" y="675" fill="#F4EFE6" font-family="monospace" font-size="19">01  midnight drive — synthwave mix ⋯  02  vinyl sessions ⋯  03  night code ⋯</text>
+
+</svg>

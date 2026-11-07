@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-label="INFO9 — FIVE MODULES">
+<rect width="1200" height="800" rx="24" fill="#121218"/>
+<rect x="1" y="1" width="1198" height="798" rx="23" fill="none" stroke="#2A2A33" stroke-width="2"/>
+<circle cx="44" cy="44" r="10" fill="#FF4A1C"/><circle cx="78" cy="44" r="10" fill="#3A3A44"/><circle cx="112" cy="44" r="10" fill="#3A3A44"/>
+<text x="150" y="52" fill="#9A9AA3" font-family="monospace" font-size="20" letter-spacing="3">INFO9 — FIVE MODULES</text>
+
+<rect x="60" y="110" width="340" height="240" rx="14" fill="#0B0B0F" stroke="#10B981" stroke-width="2"/>
+<text x="90" y="160" fill="#10B981" font-family="monospace" font-size="18">GEOLOCATION</text>
+<text x="90" y="210" fill="#F4EFE6" font-family="monospace" font-size="19">OSM · reverse</text>
+<text x="90" y="255" fill="#9A9AA3" font-family="monospace" font-size="17">no key required</text>
+<rect x="430" y="110" width="340" height="240" rx="14" fill="#0B0B0F" stroke="#2A2A33" stroke-width="2"/>
+<text x="460" y="160" fill="#F4EFE6" font-family="monospace" font-size="18">CORPORATE</text>
+<text x="460" y="210" fill="#F4EFE6" font-family="monospace" font-size="19">GLEIF · RDAP</text>
+<text x="460" y="255" fill="#9A9AA3" font-family="monospace" font-size="17">unwrapping</text>
+<rect x="800" y="110" width="340" height="240" rx="14" fill="#0B0B0F" stroke="#2A2A33" stroke-width="2"/>
+<text x="830" y="160" fill="#F4EFE6" font-family="monospace" font-size="18">INFRA</text>
+<text x="830" y="210" fill="#F4EFE6" font-family="monospace" font-size="19">Shodan · RIPE</text>
+<text x="830" y="255" fill="#9A9AA3" font-family="monospace" font-size="17">crt.sh · DoH</text>
+<rect x="60" y="390" width="540" height="240" rx="14" fill="#0B0B0F" stroke="#2A2A33" stroke-width="2"/>
+<text x="90" y="440" fill="#F4EFE6" font-family="monospace" font-size="18">MEDIA FORENSICS</text>
+<text x="90" y="490" fill="#9A9AA3" font-family="monospace" font-size="18">EXIF · metadata · in-browser</text>
+<text x="90" y="540" fill="#9A9AA3" font-family="monospace" font-size="18">zero upload · local compute</text>
+<rect x="630" y="390" width="510" height="240" rx="14" fill="#0B0B0F" stroke="#2A2A33" stroke-width="2"/>
+<text x="660" y="440" fill="#F4EFE6" font-family="monospace" font-size="18">SANCTIONS SCREENING</text>
+<text x="660" y="490" fill="#9A9AA3" font-family="monospace" font-size="18">public lists · free</text>
+<text x="660" y="540" fill="#10B981" font-family="monospace" font-size="18">✓ $0 to run · self-hostable</text>
+<text x="660" y="590" fill="#9A9AA3" font-family="monospace" font-size="17">AGPL-3.0</text>
+
+</svg>

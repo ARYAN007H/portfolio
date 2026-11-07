@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-label="NETSENTRY — LIVE DASHBOARD">
+<rect width="1200" height="800" rx="24" fill="#121218"/>
+<rect x="1" y="1" width="1198" height="798" rx="23" fill="none" stroke="#2A2A33" stroke-width="2"/>
+<circle cx="44" cy="44" r="10" fill="#FF4A1C"/><circle cx="78" cy="44" r="10" fill="#3A3A44"/><circle cx="112" cy="44" r="10" fill="#3A3A44"/>
+<text x="150" y="52" fill="#9A9AA3" font-family="monospace" font-size="20" letter-spacing="3">NETSENTRY — LIVE DASHBOARD</text>
+
+<rect x="60" y="110" width="700" height="300" rx="16" fill="#0B0B0F" stroke="#22C55E" stroke-width="2"/>
+<text x="90" y="155" fill="#22C55E" font-family="monospace" font-size="19">PACKETS / SEC — LIVE</text>
+<polyline points="90,360 190,300 290,330 390,210 490,270 590,160 690,220" fill="none" stroke="#22C55E" stroke-width="4" stroke-linecap="round"/>
+<circle cx="590" cy="160" r="9" fill="#FF4A1C"/><text x="610" y="150" fill="#FF4A1C" font-family="monospace" font-size="17">ANOMALY</text>
+<rect x="800" y="110" width="340" height="300" rx="16" fill="#0B0B0F" stroke="#2A2A33" stroke-width="2"/>
+<text x="830" y="155" fill="#F4EFE6" font-family="sans-serif" font-size="22" font-weight="bold">DETECTION</text>
+<text x="830" y="200" fill="#9A9AA3" font-family="monospace" font-size="17">Z-SCORE  BURSTS  ✓</text>
+<text x="830" y="245" fill="#9A9AA3" font-family="monospace" font-size="17">ISO-FOREST ML  ✓</text>
+<text x="830" y="290" fill="#9A9AA3" font-family="monospace" font-size="17">INTERFACE  eth0</text>
+<text x="830" y="335" fill="#22C55E" font-family="monospace" font-size="17">EXPORT  JSON · CSV</text>
+<rect x="60" y="450" width="1080" height="260" rx="16" fill="#0B0B0F" stroke="#2A2A33" stroke-width="2"/>
+<text x="90" y="500" fill="#9A9AA3" font-family="monospace" font-size="17">SRC IP              PROTO   SIZE    VERDICT</text>
+<text x="90" y="545" fill="#F4EFE6" font-family="monospace" font-size="18">192.168.1.20        TCP     1.4kB   normal</text>
+<text x="90" y="590" fill="#F4EFE6" font-family="monospace" font-size="18">10.0.0.7            UDP     64B     normal</text>
+<text x="90" y="635" fill="#FF4A1C" font-family="monospace" font-size="18">203.0.113.9         TCP     9.1kB   ⚠ burst</text>
+<text x="90" y="680" fill="#F4EFE6" font-family="monospace" font-size="18">172.16.0.4          ICMP    84B     normal</text>
+
+</svg>

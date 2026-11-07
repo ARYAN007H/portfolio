@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-label="U&I — PRIVATE CHAT">
+<rect width="1200" height="800" rx="24" fill="#121218"/>
+<rect x="1" y="1" width="1198" height="798" rx="23" fill="none" stroke="#2A2A33" stroke-width="2"/>
+<circle cx="44" cy="44" r="10" fill="#FF4A1C"/><circle cx="78" cy="44" r="10" fill="#3A3A44"/><circle cx="112" cy="44" r="10" fill="#3A3A44"/>
+<text x="150" y="52" fill="#9A9AA3" font-family="monospace" font-size="20" letter-spacing="3">U&I — PRIVATE CHAT</text>
+
+<rect x="460" y="60" width="280" height="620" rx="36" fill="#0B0B0F" stroke="#A855F7" stroke-width="3"/>
+<rect x="480" y="90" width="240" height="40" rx="12" fill="#25252F"/><text x="600" y="117" fill="#F4EFE6" font-family="sans-serif" font-size="17" text-anchor="middle" font-weight="bold">U &amp; I · private</text>
+<rect x="500" y="160" width="170" height="52" rx="16" fill="#25252F"/><text x="520" y="192" fill="#F4EFE6" font-family="sans-serif" font-size="16">good morning ☀</text>
+<rect x="530" y="230" width="170" height="52" rx="16" fill="#A855F7"/><text x="610" y="262" fill="#0B0B0F" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">morning! ♡</text>
+<rect x="500" y="300" width="190" height="52" rx="16" fill="#25252F"/><text x="520" y="332" fill="#F4EFE6" font-family="sans-serif" font-size="16">countdown: 12 days</text>
+<rect x="500" y="370" width="130" height="90" rx="16" fill="#25252F"/><text x="520" y="405" fill="#9A9AA3" font-family="monospace" font-size="14">🔒 encrypted</text><text x="520" y="435" fill="#9A9AA3" font-family="monospace" font-size="14">media</text>
+<rect x="500" y="480" width="200" height="52" rx="16" fill="#25252F"/><text x="520" y="512" fill="#F4EFE6" font-family="sans-serif" font-size="16">today's question ✦</text>
+<rect x="490" y="560" width="220" height="46" rx="23" fill="#A855F7"/><text x="600" y="590" fill="#0B0B0F" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">send · no ads · no AI</text>
+<text x="90" y="300" fill="#F4EFE6" font-family="sans-serif" font-size="44" font-weight="bold">EXACTLY</text>
+<text x="90" y="355" fill="#A855F7" font-family="sans-serif" font-size="44" font-weight="bold">TWO PEOPLE.</text>
+<text x="90" y="410" fill="#9A9AA3" font-family="monospace" font-size="20">no ads · no AI training</text>
+<text x="90" y="450" fill="#9A9AA3" font-family="monospace" font-size="20">encrypted media · export</text>
+<text x="90" y="490" fill="#9A9AA3" font-family="monospace" font-size="20">Flutter + Supabase</text>
+<rect x="90" y="530" width="260" height="60" rx="30" fill="#A855F7"/><text x="220" y="568" fill="#0B0B0F" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">TRY THE DEMO ↗</text>
+
+</svg>
