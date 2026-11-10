@@ -4,21 +4,28 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>try{if(localStorage.getItem("aryan-v2-theme")==="dark")document.documentElement.dataset.theme="dark"}catch(e){}</script>
-<title>Aryan™ Press — Portfolio V2 (Paper Edition)</title>
+<title>Aryan™ Press — Developer Portfolio</title>
 <meta name="description" content="A riso-printed catalogue of 12 projects. Free forever.">
+<meta name="theme-color" content="#FBF7ED">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Aryan™ Press">
+<meta property="og:title" content="Aryan™ Press — Developer Portfolio">
+<meta property="og:description" content="A riso-printed catalogue of 12 projects. Free forever.">
+<meta name="twitter:card" content="summary">
 <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/fraunces-normal-900.woff2">
 <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/fraunces-italic-400.woff2">
 <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/spacemono-normal-400.woff2">
 <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/caveat-normal-700.woff2">
 <link rel="stylesheet" href="fonts.css?v=1">
-<link rel="stylesheet" href="style.css?v=8">
+<link rel="stylesheet" href="style.css?v=9">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 </head>
 <body>
+<a class="skip" href="#content">Skip to content</a>
 <header class="masthead">
   <a class="mast-logo" href="index.html">Aryan<em>™</em> Press</a>
   <div class="mast-meta">
-    <span>Portfolio V2 — Paper Edition</span>
+    <span>Developer portfolio</span>
     <span id="clock">— IST</span>
     <span class="price">Price: Free</span>
     <button class="theme-btn" id="themeBtn" aria-pressed="false">☾ lights off</button>
@@ -32,11 +39,12 @@
   <a class="hot" href="https://github.com/ARYAN007H" target="_blank" rel="noopener">GitHub ↗</a>
 </nav>
 
-<section class="hero">
+<main id="content">
+<section class="hero" id="top">
   <div class="hero-grid">
     <div>
       <span class="kicker"><i></i> Vol. 0 · Index of things built · India</span>
-      <h1>Built by <span class="ital">hand,</span><br>shipped <span class="cobalt">for real.</span><br><span class="underline-hand">Built here.<svg viewBox="0 0 200 14" preserveAspectRatio="none" aria-hidden="true"><path d="M3 9 Q 50 2 100 8 T 197 6"/></svg></span></h1>
+      <h1>Made by <span class="ital">hand,</span><br>shipped <span class="cobalt">for real.</span><br><span class="underline-hand">Built here.<svg viewBox="0 0 200 14" preserveAspectRatio="none" aria-hidden="true"><path d="M3 9 Q 50 2 100 8 T 197 6"/></svg></span></h1>
       <p class="hero-sub">I'm Aryan, 17. I make <strong>native tools, music players, galleries &amp; engines</strong> — mostly in <strong>Rust, Kotlin, Python &amp; TypeScript</strong>. Twelve original projects, each filed below with its own sheet. <span class="hand-note">← that's the short version</span></p>
       <div class="index-card">
         <span class="ic-punch"></span>
@@ -55,7 +63,7 @@
         <p class="cap">that's me, probably ↑</p>
       </div>
       <div class="polaroid small">
-        <img src="assets/screenshots/music0/home-dark.jpg" alt="Music0 home screen" loading="lazy" decoding="async">
+        <img src="assets/screenshots/music0/home-dark.jpg" width="1280" height="780" alt="Music0 home screen" loading="lazy" decoding="async">
         <p class="cap">latest print — ’26</p>
       </div>
       <span class="stamp" style="top:-18px;right:2%">est. 2023</span>
@@ -84,151 +92,153 @@
     <p class="sec-desc">Pull one out. Each card opens a full spec sheet with screenshots and — where a release exists — tear-off download slips.</p>
   </div>
   <div class="tabs-wrap">
-    <div class="tabs" role="tablist" aria-label="Filter by language">
-      <button class="tab active" data-filter="All">All · 12</button>
-      <button class="tab" data-filter="Rust">Rust</button>
-      <button class="tab" data-filter="Python">Python</button>
-      <button class="tab" data-filter="TypeScript">TypeScript</button>
-      <button class="tab" data-filter="Kotlin">Kotlin</button>
-      <button class="tab" data-filter="Dart">Dart</button>
-      <button class="tab" data-filter="Svelte">Svelte</button>
-      <button class="tab" data-filter="HTML">HTML</button>
+    <div class="tabs" role="group" aria-label="Filter by language">
+      <button class="tab active" aria-pressed="true" data-filter="All">All · 12</button>
+      <button class="tab" aria-pressed="false" data-filter="Rust">Rust</button>
+      <button class="tab" aria-pressed="false" data-filter="Python">Python</button>
+      <button class="tab" aria-pressed="false" data-filter="TypeScript">TypeScript</button>
+      <button class="tab" aria-pressed="false" data-filter="Kotlin">Kotlin</button>
+      <button class="tab" aria-pressed="false" data-filter="Dart">Dart</button>
+      <button class="tab" aria-pressed="false" data-filter="Svelte">Svelte</button>
+      <button class="tab" aria-pressed="false" data-filter="HTML">HTML</button>
     </div>
   </div>
+  <p class="sr-only" id="filter-status" role="status"></p>
   <div class="deck">
 
     <a class="card-row reveal" href="projects/music0.html" data-lang="Rust">
       <span class="stamp-mini">shipped ✓</span>
       <span class="idx">01</span>
-      <span>
+      <div>
         <h3>Music0 <span class="arrow">↗</span></h3>
         <p>Online music streaming for Musico — InnerTube search + yt-dlp playback, on every platform you own.</p>
-      </span>
+      </div>
       <span class="meta"><span class="tag">Rust</span> <span class="tag shipped">↓ downloads</span><span style="font-size:11px;color:var(--mute)">★ 4 · Nov 2026</span></span>
     </a>
     <a class="card-row reveal" href="projects/galleria.html" data-lang="Svelte">
       <span class="stamp-mini">shipped ✓</span>
       <span class="idx">02</span>
-      <span>
+      <div>
         <h3>Galleria <span class="arrow">↗</span></h3>
         <p>An attempt at a good native Linux gallery app — beautiful UI, advanced editing, zero bloat.</p>
-      </span>
+      </div>
       <span class="meta"><span class="tag">Svelte</span> <span class="tag shipped">↓ downloads</span><span style="font-size:11px;color:var(--mute)">★ 1 · Oct 2026</span></span>
     </a>
     <a class="card-row reveal" href="projects/chess0.html" data-lang="TypeScript">
-      
+      <span class="stamp-mini cobalt">source</span>
       <span class="idx">03</span>
-      <span>
+      <div>
         <h3>Chess0 <span class="arrow">↗</span></h3>
         <p>A chess engine written 100% from scratch in TypeScript — playing in your browser at over a million nodes per second.</p>
-      </span>
+      </div>
       <span class="meta"><span class="tag">TypeScript</span> <span class="tag live">▶ live</span><span style="font-size:11px;color:var(--mute)">★ 0 · Nov 2026</span></span>
     </a>
     <a class="card-row reveal" href="projects/camdroid.html" data-lang="Kotlin">
       <span class="stamp-mini">shipped ✓</span>
       <span class="idx">04</span>
-      <span>
+      <div>
         <h3>CamDroid <span class="arrow">↗</span></h3>
         <p>Turn your Android device into a high-performance, ultra-low-latency virtual webcam &amp; microphone for Linux.</p>
-      </span>
+      </div>
       <span class="meta"><span class="tag">Kotlin</span> <span class="tag shipped">↓ downloads</span><span style="font-size:11px;color:var(--mute)">★ 2 · Nov 2026</span></span>
     </a>
     <a class="card-row reveal" href="projects/musico.html" data-lang="Rust">
       <span class="stamp-mini">shipped ✓</span>
       <span class="idx">05</span>
-      <span>
+      <div>
         <h3>Musico <span class="arrow">↗</span></h3>
-        <p>My own music player for Linux — because all that exist are trash UI and not good for me.</p>
-      </span>
+        <p>My own music player for Linux — because every player I tried got in the way of the music.</p>
+      </div>
       <span class="meta"><span class="tag">Rust</span> <span class="tag shipped">↓ downloads</span><span style="font-size:11px;color:var(--mute)">★ 1 · Oct 2026</span></span>
     </a>
     <a class="card-row reveal" href="projects/cloudy.html" data-lang="Rust">
       <span class="stamp-mini">shipped ✓</span>
       <span class="idx">06</span>
-      <span>
+      <div>
         <h3>Cloudy <span class="arrow">↗</span></h3>
         <p>Connect the free 15GB+ you get with each Google account into one place.</p>
-      </span>
+      </div>
       <span class="meta"><span class="tag">Rust</span> <span class="tag shipped">↓ downloads</span><span style="font-size:11px;color:var(--mute)">★ 1 · Oct 2026</span></span>
     </a>
     <a class="card-row reveal" href="projects/archivum.html" data-lang="HTML">
-      
+      <span class="stamp-mini cobalt">source</span>
       <span class="idx">07</span>
-      <span>
+      <div>
         <h3>Archivum <span class="arrow">↗</span></h3>
         <p>A free digital library of thousands of books — Project Gutenberg + Internet Archive, displayed beautifully.</p>
-      </span>
+      </div>
       <span class="meta"><span class="tag">HTML</span> <span class="tag live">▶ live</span><span style="font-size:11px;color:var(--mute)">★ 1 · May 2026</span></span>
     </a>
     <a class="card-row reveal" href="projects/info9.html" data-lang="TypeScript">
-      
+      <span class="stamp-mini cobalt">source</span>
       <span class="idx">08</span>
-      <span>
+      <div>
         <h3>Info9 <span class="arrow">↗</span></h3>
         <p>A zero-key, free &amp; open-source intelligence workbench. Five specialist modules, no paid API keys, no accounts.</p>
-      </span>
+      </div>
       <span class="meta"><span class="tag">TypeScript</span><span style="font-size:11px;color:var(--mute)">★ 0 · Nov 2026</span></span>
     </a>
     <a class="card-row reveal" href="projects/codepulse.html" data-lang="Python">
-      
+      <span class="stamp-mini cobalt">source</span>
       <span class="idx">09</span>
-      <span>
+      <div>
         <h3>CodePulse <span class="arrow">↗</span></h3>
         <p>An X-ray for your codebase — complexity, churn risk &amp; health metrics as a self-contained HTML report.</p>
-      </span>
+      </div>
       <span class="meta"><span class="tag">Python</span><span style="font-size:11px;color:var(--mute)">★ 2 · Jun 2026</span></span>
     </a>
     <a class="card-row reveal" href="projects/uni.html" data-lang="Dart">
-      
+      <span class="stamp-mini cobalt">source</span>
       <span class="idx">10</span>
-      <span>
+      <div>
         <h3>U&amp;I <span class="arrow">↗</span></h3>
         <p>A private, exactly-two-people app for couples — the couple app that can&#x27;t betray its users.</p>
-      </span>
+      </div>
       <span class="meta"><span class="tag">Dart</span> <span class="tag live">▶ live</span><span style="font-size:11px;color:var(--mute)">★ 1 · Oct 2026</span></span>
     </a>
     <a class="card-row reveal" href="projects/digital-brain.html" data-lang="Python">
-      
+      <span class="stamp-mini cobalt">source</span>
       <span class="idx">11</span>
-      <span>
+      <div>
         <h3>Digital Brain <span class="arrow">↗</span></h3>
         <p>A digital brain that fetches data from your conversations and processes it locally to build connections and improve context.</p>
-      </span>
+      </div>
       <span class="meta"><span class="tag">Python</span><span style="font-size:11px;color:var(--mute)">★ 1 · May 2026</span></span>
     </a>
     <a class="card-row reveal" href="projects/smollnet.html" data-lang="Python">
-      
+      <span class="stamp-mini cobalt">source</span>
       <span class="idx">12</span>
-      <span>
+      <div>
         <h3>SmollNet <span class="arrow">↗</span></h3>
         <p>NetSentry — a real-time, Dockerized network traffic &amp; anomaly sniffer with a cyberpunk live dashboard.</p>
-      </span>
+      </div>
       <span class="meta"><span class="tag">Python</span><span style="font-size:11px;color:var(--mute)">★ 0 · Jul 2026</span></span>
     </a>
   </div>
 
+  <h3 class="board-title">Pinned to the board</h3>
   <div class="board">
     <a class="pin reveal" href="projects/music0.html" data-lang="Rust">
       <span class="tape"></span>
-      <img src="assets/screenshots/music0/home-dark.jpg" alt="Music0 home screen" loading="lazy" decoding="async">
+      <img src="assets/screenshots/music0/home-dark.jpg" width="1280" height="780" alt="Music0 home screen" loading="lazy" decoding="async">
       <div class="pin-body"><h3>Music0</h3><p>Musico, online — InnerTube + yt-dlp, on every platform you own.</p></div>
       <div class="pin-foot"><span class="tag shipped">↓ v0.8.1</span><span class="tag">Rust</span></div>
     </a>
     <a class="pin reveal" href="projects/galleria.html" data-lang="Svelte">
       <span class="tape"></span>
-      <img src="assets/screenshots/galleria/gallery.jpg" alt="Galleria gallery grid" loading="lazy" decoding="async">
+      <img src="assets/screenshots/galleria/gallery.jpg" width="1280" height="800" alt="Galleria gallery grid" loading="lazy" decoding="async">
       <div class="pin-body"><h3>Galleria</h3><p>A native-feel Linux gallery with a LightCraft editing engine.</p></div>
       <div class="pin-foot"><span class="tag shipped">↓ v0.16.2</span><span class="tag">Svelte</span></div>
     </a>
     <a class="pin reveal" href="projects/chess0.html" data-lang="TypeScript">
       <span class="tape"></span>
-      <img src="assets/screenshots/chess0/poster.jpg" alt="Chess0 gameplay" loading="lazy" decoding="async">
+      <img src="assets/screenshots/chess0/poster.jpg" width="900" height="563" alt="Chess0 gameplay" loading="lazy" decoding="async">
       <div class="pin-body"><h3>Chess0</h3><p>A chess engine from scratch, at 1M+ nodes a second, in your browser.</p></div>
       <div class="pin-foot"><span class="tag live">▶ live</span><span class="tag">TypeScript</span></div>
     </a>
     <a class="pin reveal" href="projects/camdroid.html" data-lang="Kotlin">
       <span class="tape"></span>
-      <img src="assets/screenshots/camdroid/viewfinder.svg" alt="CamDroid viewfinder" loading="lazy" decoding="async">
+      <img src="assets/screenshots/camdroid/viewfinder.svg" width="1200" height="800" alt="CamDroid viewfinder" loading="lazy" decoding="async">
       <div class="pin-body"><h3>CamDroid</h3><p>Your Android, reborn as a 4K webcam for Linux. ~30ms latency.</p></div>
       <div class="pin-foot"><span class="tag shipped">↓ v2.1.0</span><span class="tag">Kotlin</span></div>
     </a>
@@ -246,7 +256,7 @@
   <div class="journal-grid">
     <div class="reveal">
       <div class="entry"><span class="date">2023 · first commit</span><p>Most software is bloated, ad-filled or <em>ugly</em>. So I started building the opposite — fast, native, beautiful tools that respect the person using them.</p></div>
-      <div class="entry"><span class="date">2024 · the itch</span><p>A music player, <em>because the existing ones felt like trash</em>. A gallery, because Linux deserved better. An OSINT workbench that costs nothing to run.</p><span class="margin-note">← everything here started as an itch</span></div>
+      <div class="entry"><span class="date">2024 · the itch</span><p>A music player, <em>because the existing ones kept getting in the way of the music</em>. A gallery, because Linux deserved better. An OSINT workbench that costs nothing to run.</p><span class="margin-note">← everything here started as an itch</span></div>
       <div class="entry"><span class="date">2026 · still at it</span><p>Twelve originals later, the rule hasn't changed: <em>ship it, then polish it.</em> This catalogue is the receipt.</p></div>
     </div>
     <div class="rules reveal">
@@ -264,18 +274,20 @@
       <p class="sec-kicker">§ 3 — On the shelf</p>
       <h2 class="sec-title">Tools of <em>trade</em></h2>
     </div>
-    <p class="sec-desc">Languages across the twelve cards. Rust leads — systems work is where the fun is.</p>
+    <p class="sec-desc">Languages across the twelve cards. Rust and Python lead — systems work is where the fun is.</p>
   </div>
   <div class="shelf reveal">
-    <div class="row"><span class="lang">Rust</span><span class="count">4 projects</span><span class="bar"><i style="width:100%"></i></span></div>
-    <div class="row"><span class="lang">Python</span><span class="count">3 projects</span><span class="bar"><i class="tomato" style="width:75%"></i></span></div>
-    <div class="row"><span class="lang">TypeScript</span><span class="count">2 projects</span><span class="bar"><i class="mustard" style="width:50%"></i></span></div>
-    <div class="row"><span class="lang">Kotlin</span><span class="count">1 project</span><span class="bar"><i style="width:30%"></i></span></div>
-    <div class="row"><span class="lang">Dart</span><span class="count">1 project</span><span class="bar"><i style="width:30%"></i></span></div>
-    <div class="row"><span class="lang">Svelte</span><span class="count">1 project</span><span class="bar"><i style="width:30%"></i></span></div>
-    <div class="row"><span class="lang">HTML / JS</span><span class="count">1 project</span><span class="bar"><i style="width:30%"></i></span></div>
+    <div class="row"><span class="lang">Rust</span><span class="count">3 projects</span><span class="bar"><i style="width:100%"></i></span></div>
+    <div class="row"><span class="lang">Python</span><span class="count">3 projects</span><span class="bar"><i class="tomato" style="width:100%"></i></span></div>
+    <div class="row"><span class="lang">TypeScript</span><span class="count">2 projects</span><span class="bar"><i class="mustard" style="width:67%"></i></span></div>
+    <div class="row"><span class="lang">Kotlin</span><span class="count">1 project</span><span class="bar"><i style="width:33%"></i></span></div>
+    <div class="row"><span class="lang">Dart</span><span class="count">1 project</span><span class="bar"><i style="width:33%"></i></span></div>
+    <div class="row"><span class="lang">Svelte</span><span class="count">1 project</span><span class="bar"><i style="width:33%"></i></span></div>
+    <div class="row"><span class="lang">HTML / JS</span><span class="count">1 project</span><span class="bar"><i style="width:33%"></i></span></div>
   </div>
 </section>
+
+</main>
 
 <footer class="colophon">
   <p class="end reveal">End of <em>file</em>.</p>
@@ -285,13 +297,13 @@
     <a class="btn" href="#shelf">Back to the drawer ↑</a>
   </div>
   <div class="fine">
-    <span>© <span data-year>2026</span> Aryan™ Press · Portfolio V2</span>
+    <span>© <span data-year>2026</span> Aryan™ Press</span>
     <span>Set in Fraunces &amp; Space Mono · printed on pixels</span>
     <span>12 cards · free forever</span>
   </div>
 </footer>
 
-<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Print viewer"><button class="lightbox-x" aria-label="Close">×</button><img alt="Print enlarged"><p class="lightbox-cap"></p></div>
-<script src="script.js?v=2"></script>
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Print viewer"><button class="lightbox-x" aria-label="Close">×</button><button class="lightbox-nav prev" aria-label="Previous print">←</button><button class="lightbox-nav next" aria-label="Next print">→</button><img alt="Print enlarged"><p class="lightbox-cap"></p></div>
+<script src="script.js?v=3"></script>
 </body>
 </html>

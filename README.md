@@ -1,52 +1,41 @@
-# ARYAN™ Press — Portfolio V2 · The Paper Edition
+# Aryan™ Press — portfolio
 
-The **alternative version** of the portfolio. Where V1 is a dark, screen-native poster, V2 is a
-**digital riso catalogue**: ink on paper. Same 12 projects, same data, completely different soul.
-
-## Why this isn't AI slop
-
-- **No gradients, no glass, no glow.** Spot inks on paper: Cobalt, Tomato, Mustard on cream.
-- **Type does the talking:** Fraunces serif + Space Mono typewriter + Caveat handwriting.
-  No generic Inter/Syne screen look.
-- **Imperfection is the point:** rotated cards, tape, stamps, coffee ring, red margin rule,
-  ruled lines. You can tell a human touched this.
-- **Voice, not template copy:** masthead, catalogue cards, spec sheets, journal entries,
-  tear-off download slips. It reads like a zine, because it is one.
-- **Quiet interactions:** paper tilt, stamp slams, page-turn reveals. Native cursor,
-  no preloader, no magnetic buttons, no custom cursor theatre.
-- **Default light.** V2 defaults to paper; “lights off” flips to ink mode (persisted).
+A static portfolio styled as a riso-printed catalogue: ink on paper, with a front page, twelve project spec sheets, tear-off download slips and an optional dark “ink” mode. No framework and no build step, just HTML, CSS and a little JavaScript.
 
 ## Structure
 
 ```
-portfolio-v2/
-├── index.html          # Front page — masthead, hero collage, catalogue drawer, journal, shelf
-├── style.css           # The paper design system
-├── script.js           # Theme, tabs, tilt, lightbox
+├── index.html          # front page: hero, catalogue, journal, language shelf
+├── 404.html            # shown by GitHub Pages for missing URLs
+├── style.css           # design system (tokens at the top)
+├── fonts.css           # self-hosted font faces
+├── script.js           # theme, filter, tilt, lightbox, nav state
 ├── favicon.svg
-├── assets/screenshots/ # Self-contained copies (real captures + labelled mocks)
-└── projects/*.html     # 12 spec sheets with screenshots + tear-slip downloads
+├── assets/             # fonts and screenshots (real captures, mocks are labelled)
+└── projects/*.html     # one spec sheet per project
 ```
 
-## Run
+## Run locally
 
 ```bash
-cd ~/Downloads/portfolio0/portfolio-v2
 python3 -m http.server 8001
-# http://localhost:8001
+# open http://localhost:8001
 ```
 
-## Compare
+## Editing
 
-| | V1 (`../`) | V2 (`./`) |
-|---|---|---|
-| Vibe | Dark poster / screen | Paper / riso zine |
-| Default | Dark | Light (paper) |
-| Type | Syne + Space Grotesk | Fraunces + Space Mono + Caveat |
-| Accent | Vermilion | Cobalt + Tomato + Mustard |
-| Work list | Editorial table + float preview | Index-card drawer + stamps |
-| Downloads | Download Centre (bone panel) | Tear-off slips (“Take one home”) |
-| Extras | Custom cursor, preloader, marquee | Polaroids, tape, coffee ring, barcode |
+- Colours, shadows and spacing live in the `:root` block at the top of `style.css`. Dark mode overrides them in `:root[data-theme="dark"]`.
+- Adding a project means a new page in `projects/`, a card (and optionally a pin) in `index.html`, and an updated count under “On the shelf”.
+- Bump the `?v=` query on `style.css` and `script.js` in every page when you change them, so browsers fetch the new files.
 
-Same GitHub data (fetched 7 Nov 2026). Screenshots live in
-`assets/screenshots/` — real captures from each repo, mocks labelled as mocks.
+## Deploying
+
+The site is served as-is by GitHub Pages (`.nojekyll` is included).
+
+## Data
+
+Stars, release versions and dates on the project pages were copied from GitHub on 7 Nov 2026. They are static, so refresh them when you ship a new release.
+
+## Type
+
+Fraunces, Space Mono and Caveat, self-hosted in `assets/fonts/`.

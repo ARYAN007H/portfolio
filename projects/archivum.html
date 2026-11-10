@@ -6,19 +6,26 @@
 <script>try{if(localStorage.getItem("aryan-v2-theme")==="dark")document.documentElement.dataset.theme="dark"}catch(e){}</script>
 <title>Archivum — Spec Sheet · Aryan™ Press</title>
 <meta name="description" content="A free digital library of thousands of books — Project Gutenberg + Internet Archive, displayed beautifully.">
+<meta name="theme-color" content="#FBF7ED">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Aryan™ Press">
+<meta property="og:title" content="Archivum — Spec Sheet · Aryan™ Press">
+<meta property="og:description" content="A free digital library of thousands of books — Project Gutenberg + Internet Archive, displayed beautifully.">
+<meta name="twitter:card" content="summary">
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../assets/fonts/fraunces-normal-900.woff2">
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../assets/fonts/fraunces-italic-400.woff2">
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../assets/fonts/spacemono-normal-400.woff2">
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../assets/fonts/caveat-normal-700.woff2">
 <link rel="stylesheet" href="../fonts.css?v=1">
-<link rel="stylesheet" href="../style.css?v=8">
+<link rel="stylesheet" href="../style.css?v=9">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 </head>
 <body>
+<a class="skip" href="#content">Skip to content</a>
 <header class="masthead">
   <a class="mast-logo" href="../index.html">Aryan<em>™</em> Press</a>
   <div class="mast-meta">
-    <span>Portfolio V2 — Paper Edition</span>
+    <span>Developer portfolio</span>
     <span id="clock">— IST</span>
     <span class="price">Price: Free</span>
     <button class="theme-btn" id="themeBtn" aria-pressed="false">☾ lights off</button>
@@ -85,9 +92,9 @@
     <p class="sec-desc">Click a print to hold it up close. Real captures where they exist; mocks are labelled.</p>
   </div>
   <div class="print-grid">
-<figure class="print reveal"><button data-full="../assets/screenshots/archivum/catalog_hero.jpg" aria-label="Enlarge: Catalog hero"><img src="../assets/screenshots/archivum/catalog_hero.jpg" alt="Catalog hero" loading="lazy" decoding="async"></button><figcaption><span>Catalog hero</span><span class="x">⤢</span></figcaption></figure>
-<figure class="print reveal"><button data-full="../assets/screenshots/archivum/catalog_grid.jpg" aria-label="Enlarge: Discovery grid"><img src="../assets/screenshots/archivum/catalog_grid.jpg" alt="Discovery grid" loading="lazy" decoding="async"></button><figcaption><span>Discovery grid</span><span class="x">⤢</span></figcaption></figure>
-<figure class="print reveal"><button data-full="../assets/screenshots/archivum/catalog_detail.jpg" aria-label="Enlarge: Book detail"><img src="../assets/screenshots/archivum/catalog_detail.jpg" alt="Book detail" loading="lazy" decoding="async"></button><figcaption><span>Book detail</span><span class="x">⤢</span></figcaption></figure>
+<figure class="print reveal"><button data-full="../assets/screenshots/archivum/catalog_hero.jpg" aria-label="Enlarge: Catalog hero"><img src="../assets/screenshots/archivum/catalog_hero.jpg" width="1024" height="577" alt="Catalog hero" loading="lazy" decoding="async"></button><figcaption><span>Catalog hero</span><span class="x">⤢</span></figcaption></figure>
+<figure class="print reveal"><button data-full="../assets/screenshots/archivum/catalog_grid.jpg" aria-label="Enlarge: Discovery grid"><img src="../assets/screenshots/archivum/catalog_grid.jpg" width="1024" height="577" alt="Discovery grid" loading="lazy" decoding="async"></button><figcaption><span>Discovery grid</span><span class="x">⤢</span></figcaption></figure>
+<figure class="print reveal"><button data-full="../assets/screenshots/archivum/catalog_detail.jpg" aria-label="Enlarge: Book detail"><img src="../assets/screenshots/archivum/catalog_detail.jpg" width="1024" height="577" alt="Book detail" loading="lazy" decoding="async"></button><figcaption><span>Book detail</span><span class="x">⤢</span></figcaption></figure>
   </div>
 </section>
 
@@ -105,11 +112,11 @@
   </div>
   <div class="fine">
     <span>© <span data-year>2026</span> Aryan™ Press · Archivum</span>
-    <span>Portfolio V2 — Paper Edition</span>
+    <span>Set in Fraunces &amp; Space Mono</span>
   </div>
 </footer>
 
-<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Print viewer"><button class="lightbox-x" aria-label="Close">×</button><img alt="Print enlarged"><p class="lightbox-cap"></p></div>
-<script src="../script.js?v=2"></script>
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Print viewer"><button class="lightbox-x" aria-label="Close">×</button><button class="lightbox-nav prev" aria-label="Previous print">←</button><button class="lightbox-nav next" aria-label="Next print">→</button><img alt="Print enlarged"><p class="lightbox-cap"></p></div>
+<script src="../script.js?v=3"></script>
 </body>
 </html>

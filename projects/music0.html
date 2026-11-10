@@ -6,19 +6,26 @@
 <script>try{if(localStorage.getItem("aryan-v2-theme")==="dark")document.documentElement.dataset.theme="dark"}catch(e){}</script>
 <title>Music0 — Spec Sheet · Aryan™ Press</title>
 <meta name="description" content="Online music streaming for Musico — InnerTube search + yt-dlp playback, on every platform you own.">
+<meta name="theme-color" content="#FBF7ED">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Aryan™ Press">
+<meta property="og:title" content="Music0 — Spec Sheet · Aryan™ Press">
+<meta property="og:description" content="Online music streaming for Musico — InnerTube search + yt-dlp playback, on every platform you own.">
+<meta name="twitter:card" content="summary">
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../assets/fonts/fraunces-normal-900.woff2">
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../assets/fonts/fraunces-italic-400.woff2">
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../assets/fonts/spacemono-normal-400.woff2">
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../assets/fonts/caveat-normal-700.woff2">
 <link rel="stylesheet" href="../fonts.css?v=1">
-<link rel="stylesheet" href="../style.css?v=8">
+<link rel="stylesheet" href="../style.css?v=9">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 </head>
 <body>
+<a class="skip" href="#content">Skip to content</a>
 <header class="masthead">
   <a class="mast-logo" href="../index.html">Aryan<em>™</em> Press</a>
   <div class="mast-meta">
-    <span>Portfolio V2 — Paper Edition</span>
+    <span>Developer portfolio</span>
     <span id="clock">— IST</span>
     <span class="price">Price: Free</span>
     <button class="theme-btn" id="themeBtn" aria-pressed="false">☾ lights off</button>
@@ -56,11 +63,11 @@
   <div>
     <h2>About <em>this one</em></h2>
     <p class="reveal">Music0 is the online evolution of Musico: search YouTube via InnerTube, play via yt-dlp, and carry your library across Linux, Windows, macOS and Android. It exists because desktop music players kept getting worse — heavier, uglier, less yours.</p>
-<p class="reveal">Shipped as a real product: six releases in quick succession, each with signed installers for .deb, .rpm, AppImage, .exe, .msi, .dmg and an Android APK. If there&#x27;s a platform you use, there&#x27;s a build for it.</p>
+<p class="reveal">Shipped as a real product: six releases in quick succession, each with checksummed installers for .deb, .rpm, AppImage, .exe, .msi, .dmg and an Android APK. If there&#x27;s a platform you use, there&#x27;s a build for it.</p>
     <h2 style="margin-top:40px">What's <em>in it</em></h2>
     <ul class="feat"><li class="reveal">InnerTube search + yt-dlp playback — streams without a second app</li>
 <li class="reveal">One codebase, four platforms — Linux, Windows, macOS, Android</li>
-<li class="reveal">Signed release artifacts with SHA256SUMS for verification</li>
+<li class="reveal">Release artifacts with SHA256SUMS for verification</li>
 <li class="reveal">The flagship download of this portfolio — start here</li></ul>
     <h2 style="margin-top:40px">Made <em>with</em></h2>
     <div class="chips"><span class="chip">Rust</span><span class="chip">yt-dlp</span><span class="chip">InnerTube</span><span class="chip">Tauri-style packaging</span></div>
@@ -93,9 +100,9 @@
     <p class="sec-desc">Click a print to hold it up close. Real captures where they exist; mocks are labelled.</p>
   </div>
   <div class="print-grid">
-<figure class="print reveal"><button data-full="../assets/screenshots/music0/home-dark.jpg" aria-label="Enlarge: Home — dark theme"><img src="../assets/screenshots/music0/home-dark.jpg" alt="Home — dark theme" loading="lazy" decoding="async"></button><figcaption><span>Home — dark theme</span><span class="x">⤢</span></figcaption></figure>
-<figure class="print reveal"><button data-full="../assets/screenshots/music0/sonic-lab.jpg" aria-label="Enlarge: Sonic Lab"><img src="../assets/screenshots/music0/sonic-lab.jpg" alt="Sonic Lab" loading="lazy" decoding="async"></button><figcaption><span>Sonic Lab</span><span class="x">⤢</span></figcaption></figure>
-<figure class="print reveal"><button data-full="../assets/screenshots/music0/vinyl-fullscreen.jpg" aria-label="Enlarge: Vinyl fullscreen"><img src="../assets/screenshots/music0/vinyl-fullscreen.jpg" alt="Vinyl fullscreen" loading="lazy" decoding="async"></button><figcaption><span>Vinyl fullscreen</span><span class="x">⤢</span></figcaption></figure>
+<figure class="print reveal"><button data-full="../assets/screenshots/music0/home-dark.jpg" aria-label="Enlarge: Home — dark theme"><img src="../assets/screenshots/music0/home-dark.jpg" width="1280" height="780" alt="Home — dark theme" loading="lazy" decoding="async"></button><figcaption><span>Home — dark theme</span><span class="x">⤢</span></figcaption></figure>
+<figure class="print reveal"><button data-full="../assets/screenshots/music0/sonic-lab.jpg" aria-label="Enlarge: Sonic Lab"><img src="../assets/screenshots/music0/sonic-lab.jpg" width="1280" height="770" alt="Sonic Lab" loading="lazy" decoding="async"></button><figcaption><span>Sonic Lab</span><span class="x">⤢</span></figcaption></figure>
+<figure class="print reveal"><button data-full="../assets/screenshots/music0/vinyl-fullscreen.jpg" aria-label="Enlarge: Vinyl fullscreen"><img src="../assets/screenshots/music0/vinyl-fullscreen.jpg" width="1134" height="1000" alt="Vinyl fullscreen" loading="lazy" decoding="async"></button><figcaption><span>Vinyl fullscreen</span><span class="x">⤢</span></figcaption></figure>
   </div>
 </section>
 
@@ -113,11 +120,11 @@
   </div>
   <div class="fine">
     <span>© <span data-year>2026</span> Aryan™ Press · Music0</span>
-    <span>Portfolio V2 — Paper Edition</span>
+    <span>Set in Fraunces &amp; Space Mono</span>
   </div>
 </footer>
 
-<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Print viewer"><button class="lightbox-x" aria-label="Close">×</button><img alt="Print enlarged"><p class="lightbox-cap"></p></div>
-<script src="../script.js?v=2"></script>
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Print viewer"><button class="lightbox-x" aria-label="Close">×</button><button class="lightbox-nav prev" aria-label="Previous print">←</button><button class="lightbox-nav next" aria-label="Next print">→</button><img alt="Print enlarged"><p class="lightbox-cap"></p></div>
+<script src="../script.js?v=3"></script>
 </body>
 </html>
