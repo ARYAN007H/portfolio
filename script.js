@@ -171,5 +171,183 @@
     });
   }
 
+  /* latest releases: hydrate the download slips from GitHub so new builds appear on their own */
+  const download = document.querySelector('#download[data-repo]');
+  if(download){
+    const repo = download.dataset.repo;
+    const api = 'https://api.github.com/repos/' + repo + '/releases?per_page=100';
+    const cacheKey = 'aryan-releases:v1:' + repo;
+
+    /* show the last known release immediately, then refresh it in the background */
+    const cached = (() => {
+      try{
+        const raw = JSON.parse(localStorage.getItem(cacheKey));
+        if(raw && raw.latest) return raw;
+      }catch(e){}
+      return null;
+    })();
+
+    const fmtDate = iso => {
+      const d = new Date(iso);
+      return isNaN(d) ? '—' : d.toLocaleDateString('en-GB', {day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC'});
+    };
+
+    /* release asset name → platform label; null means "not a user download" */
+    const label = name => {
+      const n = name.toLowerCase();
+      if(n === 'sha256sums.txt' || /\.(idsig|sig|sha256)$/.test(n)) return null;
+      if(/\.app\.tar(\.(gz|bz2|xz))?$/.test(n)) return null;
+      if(n.endsWith('.apk')){
+        if(n.includes('native')) return 'Android · APK (native)';
+        return n.includes('aarch64') ? 'Android · APK (aarch64)' : 'Android · APK';
+      }
+      if(n.endsWith('.appimage')) return 'Linux · AppImage';
+      if(n.endsWith('.deb')) return 'Linux · Debian .deb';
+      if(n.endsWith('.rpm')) return 'Linux · Fedora .rpm';
+      if(n.endsWith('.flatpak')) return 'Linux · Flatpak';
+      if(n.endsWith('.msi')) return 'Windows · MSI';
+      if(n.endsWith('.exe')) return n.includes('setup') ? 'Windows · Installer .exe' : 'Windows · Portable .exe';
+      if(n.endsWith('.dmg')){
+        if(n.includes('universal')) return 'macOS · Universal .dmg';
+        if(n.includes('aarch64') || n.includes('arm64')) return 'macOS · Apple Silicon .dmg';
+        if(/(x64|x86_64|amd64|intel)/.test(n)) return 'macOS · Intel .dmg';
+        return 'macOS · .dmg';
+      }
+      if(/\.(tar\.gz|tgz)$/.test(n)) return 'Linux · Portable .tar.gz';
+      if(!n.includes('.')) return 'Linux · Standalone binary';
+      return null;
+    };
+
+    const rank = name => {
+      const n = name.toLowerCase();
+      if(n.endsWith('.appimage')) return 10;
+      if(n.endsWith('.deb')) return 20;
+      if(n.endsWith('.rpm')) return 30;
+      if(n.endsWith('.flatpak')) return 40;
+      if(/\.(tar\.gz|tgz)$/.test(n) || !n.includes('.')) return 50;
+      if(n.endsWith('.exe')) return 60;
+      if(n.endsWith('.msi')) return 70;
+      if(n.endsWith('.dmg')) return 80;
+      if(n.endsWith('.apk')) return 90;
+      return 100;
+    };
+
+    const render = state => {
+      const fine = download.querySelector('.fine');
+      const sub = download.querySelector('.sub');
+      const latest = state.latest;
+      const spec = [...document.querySelectorAll('.spec')].find(item => {
+        const key = item.querySelector('.k');
+        return key && key.textContent.trim() === 'Latest release';
+      });
+      const setSpec = tag => {
+        const value = spec && spec.querySelector('.v');
+        if(value) value.textContent = tag;
+      };
+
+      if(!latest){
+        setSpec('—');
+        if(fine){
+          fine.textContent = '0 release(s) · latest — (—)';
+          fine.append(document.createElement('br'), 'Source: https://github.com/' + repo);
+        }
+        return;
+      }
+      setSpec(latest.tag_name);
+
+      const date = fmtDate(latest.published_at);
+      const assets = (latest.assets || []).slice()
+        .map(asset => ({asset, name: label(asset.name)}))
+        .filter(x => x.name)
+        .sort((a, b) => rank(a.asset.name) - rank(b.asset.name) || a.asset.name.localeCompare(b.asset.name));
+
+      if(sub){
+        sub.textContent = assets.length
+          ? 'Latest: ' + latest.tag_name + ' · ' + date + '. Tear off what you need.'
+          : 'Latest: ' + latest.tag_name + ' · ' + date + '. No packaged build — grab the source.';
+      }
+
+      let all = download.querySelector('.slip.all');
+      if(!all){
+        all = document.createElement('a');
+        all.className = 'slip all';
+        all.href = 'https://github.com/' + repo + '/releases';
+        all.target = '_blank';
+        all.rel = 'noopener';
+        const title = document.createElement('span');
+        title.textContent = 'All releases & notes';
+        const dl = document.createElement('span');
+        dl.className = 'dl';
+        dl.textContent = '↗ GitHub';
+        all.append(title, dl);
+        download.insertBefore(all, fine);
+      }
+
+      if(assets.length){
+        download.querySelectorAll('.slip:not(.all)').forEach(el => el.remove());
+        assets.forEach(({asset, name}) => {
+          const a = document.createElement('a');
+          a.className = 'slip';
+          a.href = asset.browser_download_url;
+          a.setAttribute('download', '');
+          const platform = document.createElement('span');
+          platform.textContent = name;
+          const take = document.createElement('span');
+          take.className = 'dl';
+          take.textContent = '↓ take';
+          a.append(platform, take);
+          download.insertBefore(a, all);
+        });
+      } else if(!download.querySelector('.slip.empty')){
+        download.querySelectorAll('.slip:not(.all)').forEach(el => el.remove());
+        const empty = document.createElement('div');
+        empty.className = 'slip empty';
+        empty.textContent = 'No packaged build for this release yet. ';
+        const link = document.createElement('a');
+        link.href = 'https://github.com/' + repo + '/releases';
+        link.target = '_blank';
+        link.rel = 'noopener';
+        link.style.cssText = 'text-decoration:underline;font-weight:700';
+        link.textContent = 'Check the release notes ↗';
+        empty.append(link);
+        download.insertBefore(empty, all);
+      }
+
+      if(fine){
+        fine.textContent = state.count + ' release(s) · latest ' + latest.tag_name + ' (' + date + ')';
+        fine.append(document.createElement('br'), 'Source: https://github.com/' + repo);
+      }
+    };
+
+    if(cached) render(cached);
+
+    fetch(api, {headers: {'Accept': 'application/vnd.github+json'}})
+      .then(res => res.ok ? res.json() : Promise.reject(res.status))
+      .then(data => {
+        if(!Array.isArray(data)) return;
+        const state = {t: Date.now(), count: data.length, latest: data[0] || null};
+        try{ localStorage.setItem(cacheKey, JSON.stringify(state)); }catch(e){}
+        render(state);
+      })
+      .catch(() => {});
+  }
+
+  /* pinned-card versions on the front page */
+  document.querySelectorAll('[data-release-tag][data-repo]').forEach(el => {
+    const repo = el.dataset.repo;
+    const key = 'aryan-releases:v1:' + repo;
+    const apply = state => { if(state && state.latest) el.textContent = '↓ ' + state.latest.tag_name; };
+    try{ apply(JSON.parse(localStorage.getItem(key))); }catch(e){}
+    fetch('https://api.github.com/repos/' + repo + '/releases?per_page=100', {headers: {'Accept': 'application/vnd.github+json'}})
+      .then(res => res.ok ? res.json() : Promise.reject(res.status))
+      .then(data => {
+        if(!Array.isArray(data)) return;
+        const state = {t: Date.now(), count: data.length, latest: data[0] || null};
+        try{ localStorage.setItem(key, JSON.stringify(state)); }catch(e){}
+        apply(state);
+      })
+      .catch(() => {});
+  });
+
   document.querySelectorAll('[data-year]').forEach(el => el.textContent = new Date().getFullYear());
 })();

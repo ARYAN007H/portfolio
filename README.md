@@ -34,7 +34,7 @@ The site is served as-is by GitHub Pages (`.nojekyll` is included).
 
 ## Data
 
-Stars, release versions and dates on the project pages were copied from GitHub on 7 Nov 2026. They are static, so refresh them when you ship a new release.
+Stars were copied from GitHub on 7 Nov 2026 and stay static. Release versions, dates and download links hydrate from the public GitHub Releases API in `script.js` via the `data-repo` attribute on each `#download` block, and pinned-card versions use `data-release-tag` on the front page. The HTML keeps a static fallback for no-JS or API failures.
 
 ## Type
 
