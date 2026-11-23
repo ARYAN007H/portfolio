@@ -29,7 +29,7 @@ python3 -m http.server 8001
 - Bump the `?v=` query on `style.css` and `script.js` in every page when you change them, so browsers fetch the new files.
 
 ## Deploying
-
+just a static deployment on github pages.
 The site is served as-is by GitHub Pages (`.nojekyll` is included).
 
 ## Data
