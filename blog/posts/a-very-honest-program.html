@@ -75,7 +75,7 @@
 </header>
 
 <main id="main" class="wrap">
-  <header class="article-head">
+  <header class="article-head reveal">
     <p class="kicker">Sheet No. 01 · Field note</p>
     <h1>A very honest <em>program</em></h1>
     <p class="dek">A chess engine will not pretend your move was good. That turns out to be the nicest thing about building one.</p>
@@ -122,7 +122,7 @@
 
       <p>The NNUE training pipeline is in the repo and not in the product. That's the honest version. A neural evaluation is the next real step, and I'd rather say "in the pipeline" than ship a half-trained network and call it done. There's also no opening book, which means the first eight moves are the engine thinking from first principles like the rest of us.</p>
 
-      <figure class="print">
+      <figure class="print reveal">
         <img src="../assets/img/chess0-poster.jpg" width="900" height="563" alt="Chess0 playing itself in the browser, with the evaluation bar visible." loading="lazy" decoding="async">
         <figcaption><span>Chess0 playing itself. Real capture, not a mock.</span><span>Print № 01</span></figcaption>
       </figure>
@@ -138,11 +138,11 @@
     </div>
 
     <aside aria-label="Margin notes">
-      <p class="margin">
+      <p class="margin reveal">
         The first version couldn't castle. The second could castle through check. The third is the one you can play.
         <span class="mono">— keep the failing tests</span>
       </p>
-      <p class="margin">
+      <p class="margin reveal">
         A million nodes a second is not fast. It is enough. There's a difference, and the difference is a deadline.
         <span class="mono">— perf note</span>
       </p>
@@ -154,7 +154,7 @@
     </div>
   </div>
 
-  <nav class="prevnext" aria-label="More sheets">
+  <nav class="prevnext reveal" aria-label="More sheets">
     <a href="the-catalogue-was-the-easy-part.html"><span>Next sheet</span><strong>The catalogue was the easy part →</strong></a>
     <a href="../archive.html"><span>Archive</span><strong>Everything, by date →</strong></a>
   </nav>
@@ -192,6 +192,23 @@
     paint(t);try{localStorage.setItem('offcuts-theme',t);}catch(e){}
   });
   var y=document.getElementById('year');if(y)y.textContent=new Date().getFullYear();
+})();
+</script>
+
+<script>
+(function(){
+  var els=[].slice.call(document.querySelectorAll('.reveal'));
+  function show(el){ el.classList.add('in'); }
+  if(!('IntersectionObserver' in window)){ els.forEach(show); return; }
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ show(e.target); io.unobserve(e.target); }
+    });
+  },{threshold:.08});
+  els.forEach(function(el){
+    if(el.getBoundingClientRect().top < window.innerHeight){ el.classList.add('instant'); show(el); }
+    else { io.observe(el); }
+  });
 })();
 </script>
 </body>

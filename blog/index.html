@@ -96,10 +96,10 @@
 </header>
 
 <main id="main" class="wrap">
-  <section class="intro" aria-labelledby="intro-h">
+  <section class="intro reveal" aria-labelledby="intro-h">
     <div>
-      <h1 id="intro-h">The bits that don't fit on a <em>spec sheet</em>.</h1>
-      <p>I'm Aryan. I'm 17, I live in India, and I build native apps and small web things. Twelve of them are catalogued over at the portfolio, each with a spec sheet and, where one exists, a download.</p>
+      <h1 id="intro-h">The bits that don't fit on a <em class="underline-hand">spec sheet<svg viewBox="0 0 200 14" preserveAspectRatio="none" aria-hidden="true"><path d="M3 9 Q 50 2 100 8 T 197 6"/></svg></em>.</h1>
+      <p>I'm Aryan. I'm 17, I live in India, and I build <strong>native apps and small web things</strong>. Twelve of them are catalogued over at the portfolio, each with a spec sheet and, where one exists, a download.</p>
       <p>This is the other drawer: bugs I kept, decisions I re-made, and the unglamorous parts. New sheets when there's something worth saying. No schedule, no newsletter, no comments.</p>
       <span class="hand">start with the chess one ↓</span>
     </div>
@@ -112,22 +112,27 @@
     </aside>
   </section>
 
-  <div class="shelf-head">
+  <div class="tape-strip" aria-hidden="true"><div class="track">
+    <span>Field notes</span><span>No newsletter</span><span>RSS</span><span>Free forever</span><span>No accounts</span><span>Hand-written HTML</span><span>No analytics</span>
+    <span>Field notes</span><span>No newsletter</span><span>RSS</span><span>Free forever</span><span>No accounts</span><span>Hand-written HTML</span><span>No analytics</span>
+  </div></div>
+
+  <div class="shelf-head reveal">
     <h2>Latest sheets</h2>
     <span>Four so far</span>
   </div>
   <ol class="post-list">
-    <li class="post-row">
+    <li class="post-row reveal">
       <a href="posts/a-very-honest-program.html">
         <span class="no">01</span>
         <div>
           <h3>A very honest <em>program</em> <span class="arrow">↗</span></h3>
           <p>A chess engine will not pretend your move was good. Notes on perft, a million nodes a second, and the comfort of being told you're wrong.</p>
         </div>
-        <span class="when"><time datetime="2026-11-18">18 Nov 2026</time><br>6 min</span>
+        <span class="when"><span class="stamp-mini">latest</span><time datetime="2026-11-18">18 Nov 2026</time><br>6 min</span>
       </a>
     </li>
-    <li class="post-row">
+    <li class="post-row reveal">
       <a href="posts/the-catalogue-was-the-easy-part.html">
         <span class="no">02</span>
         <div>
@@ -137,7 +142,7 @@
         <span class="when"><time datetime="2026-11-02">02 Nov 2026</time><br>5 min</span>
       </a>
     </li>
-    <li class="post-row">
+    <li class="post-row reveal">
       <a href="posts/forty-five-gigabytes.html">
         <span class="no">03</span>
         <div>
@@ -147,7 +152,7 @@
         <span class="when"><time datetime="2026-10-22">22 Oct 2026</time><br>4 min</span>
       </a>
     </li>
-    <li class="post-row">
+    <li class="post-row reveal">
       <a href="posts/free-forever.html">
         <span class="no">04</span>
         <div>
@@ -159,7 +164,7 @@
     </li>
   </ol>
 
-  <div class="note-strip">
+  <div class="note-strip reveal">
     <span>No comments, no newsletter. If a sheet is wrong, tell me and I'll fix it.</span>
     <a href="mailto:aryan.chaudhary.akb@gmail.com">aryan.chaudhary.akb@gmail.com</a>
   </div>
@@ -197,6 +202,23 @@
     paint(t);try{localStorage.setItem('offcuts-theme',t);}catch(e){}
   });
   var y=document.getElementById('year');if(y)y.textContent=new Date().getFullYear();
+})();
+</script>
+
+<script>
+(function(){
+  var els=[].slice.call(document.querySelectorAll('.reveal'));
+  function show(el){ el.classList.add('in'); }
+  if(!('IntersectionObserver' in window)){ els.forEach(show); return; }
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ show(e.target); io.unobserve(e.target); }
+    });
+  },{threshold:.08});
+  els.forEach(function(el){
+    if(el.getBoundingClientRect().top < window.innerHeight){ el.classList.add('instant'); show(el); }
+    else { io.observe(el); }
+  });
 })();
 </script>
 </body>

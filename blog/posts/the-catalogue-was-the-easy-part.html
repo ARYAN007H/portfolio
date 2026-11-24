@@ -75,7 +75,7 @@
 </header>
 
 <main id="main" class="wrap">
-  <header class="article-head">
+  <header class="article-head reveal">
     <p class="kicker">Sheet No. 02 · Making-of</p>
     <h1>The catalogue was the <em>easy part</em></h1>
     <p class="dek">Twelve spec sheets, one static site, and the small lies we tell about launch week.</p>
@@ -135,11 +135,11 @@
     </div>
 
     <aside aria-label="Margin notes">
-      <p class="margin">
+      <p class="margin reveal">
         The first draft had fourteen projects. Two of them were ideas with a logo. They did not get sheets.
         <span class="mono">— edit ruthlessly</span>
       </p>
-      <p class="margin">
+      <p class="margin reveal">
         Every screenshot is a real capture. The mocks are labelled. This is a low bar that most portfolios clear by accident.
         <span class="mono">— trust, cheaply</span>
       </p>
@@ -151,7 +151,7 @@
     </div>
   </div>
 
-  <nav class="prevnext" aria-label="More sheets">
+  <nav class="prevnext reveal" aria-label="More sheets">
     <a href="a-very-honest-program.html"><span>Previous sheet</span><strong>← A very honest program</strong></a>
     <a href="forty-five-gigabytes.html"><span>Next sheet</span><strong>Forty-five gigabytes, three logins →</strong></a>
   </nav>
@@ -189,6 +189,23 @@
     paint(t);try{localStorage.setItem('offcuts-theme',t);}catch(e){}
   });
   var y=document.getElementById('year');if(y)y.textContent=new Date().getFullYear();
+})();
+</script>
+
+<script>
+(function(){
+  var els=[].slice.call(document.querySelectorAll('.reveal'));
+  function show(el){ el.classList.add('in'); }
+  if(!('IntersectionObserver' in window)){ els.forEach(show); return; }
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ show(e.target); io.unobserve(e.target); }
+    });
+  },{threshold:.08});
+  els.forEach(function(el){
+    if(el.getBoundingClientRect().top < window.innerHeight){ el.classList.add('instant'); show(el); }
+    else { io.observe(el); }
+  });
 })();
 </script>
 </body>

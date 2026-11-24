@@ -287,20 +287,35 @@ figure.print figcaption{
 
 /* ---------- archive / colophon ---------- */
 
-.page-head{padding:44px 0 26px;border-bottom:2px solid var(--ink)}
+.page-head{position:relative;padding:44px 0 26px;border-bottom:2px solid var(--ink)}
 .page-head h1{font-size:clamp(38px,6vw,58px);font-weight:900;letter-spacing:-.035em;line-height:1}
 .page-head p{max-width:54ch;color:var(--ink-2);margin-top:14px}
+.page-stamp{
+  position:absolute;right:0;bottom:26px;
+  border:2px solid var(--tomato);color:var(--tomato);background:var(--card);
+  font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;
+  padding:6px 10px;transform:rotate(6deg);
+}
+@media (max-width:900px){.page-stamp{display:none}}
 .year{
   font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;
   color:var(--tomato);padding:30px 0 8px;border-bottom:1px solid var(--line);
 }
 .arch-row{
-  display:grid;grid-template-columns:110px minmax(0,1fr) 90px;gap:16px;align-items:baseline;
+  display:grid;grid-template-columns:30px 110px minmax(0,1fr) 90px;gap:16px;align-items:baseline;
+  transition:transform .18s ease;
   padding:14px 2px;border-bottom:1px solid var(--line-soft);
 }
 .arch-row time{font-family:var(--mono);font-size:10.5px;color:var(--mute)}
+.arch-row .no{font-family:var(--mono);font-size:10px;color:var(--tomato);opacity:.8;letter-spacing:.06em}
 .arch-row a{text-decoration:none;font-size:21px}
-.arch-row a:hover{color:var(--cobalt)}
+.arch-row a:hover{
+  color:var(--cobalt);
+  text-decoration:underline;text-decoration-style:wavy;text-decoration-color:var(--tomato);
+  text-decoration-thickness:2px;text-underline-offset:5px;
+}
+.arch-row:hover{transform:translateX(3px)}
+.arch-row:hover time{color:var(--tomato)}
 .arch-row .rt{font-family:var(--mono);font-size:10px;color:var(--mute);text-align:right}
 
 .colophon{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:50px;padding:38px 0 10px}
@@ -386,6 +401,7 @@ figure.print figcaption{
   .prevnext{grid-template-columns:1fr}
   .prevnext a:last-child{border-left:0;border-top:1px solid var(--line);text-align:left}
   .arch-row{grid-template-columns:1fr;gap:2px;padding:12px 2px}
+  .arch-row .no{display:none}
   .arch-row .rt{text-align:left}
   .article-head h1{font-size:clamp(32px,8vw,44px)}
   .byline{gap:4px 14px}
@@ -405,4 +421,156 @@ figure.print figcaption{
   .prose a::after{content:" (" attr(href) ")";font-family:monospace;font-size:8pt;color:#555}
   figure.print{box-shadow:none;transform:none;break-inside:avoid}
   .prose>p:first-of-type::first-letter{color:#000}
+}
+
+/* ============================================================
+   PRESS-FLOOR QUIRKS
+   Ruled paper, tape, stamps, a red margin, and small movements.
+   All decoration is aria-hidden or pseudo-content; reading untouched.
+   ============================================================ */
+
+:root{--rule:rgba(34,33,58,.055)}
+:root[data-theme="dark"]{--rule:rgba(243,237,220,.07)}
+
+/* the sheet is ruled, like the catalogue */
+@media (min-width:900px){
+  body{
+    background-image:
+      linear-gradient(90deg,transparent 0 calc(max(20px,(100vw - 1120px)/2) - 12px),rgba(255,90,60,.18) calc(max(20px,(100vw - 1120px)/2) - 12px) calc(max(20px,(100vw - 1120px)/2) - 10px),transparent calc(max(20px,(100vw - 1120px)/2) - 10px)),
+      repeating-linear-gradient(to bottom,transparent 0 31px,var(--rule) 31px 32px);
+  }
+}
+@media (max-width:899px){
+  body{background-image:repeating-linear-gradient(to bottom,transparent 0 31px,var(--rule) 31px 32px)}
+}
+
+/* the wordmark scissors actually snips */
+.wordmark .cut{transition:transform .25s ease}
+.wordmark:hover .cut{transform:translateY(-.32em) rotate(14deg)}
+
+/* hand-drawn underline for the italic in the intro */
+.underline-hand{position:relative;white-space:nowrap}
+.underline-hand svg{position:absolute;left:0;bottom:-.08em;width:100%;height:.22em;overflow:visible}
+.underline-hand path{stroke:var(--tomato);stroke-width:6;fill:none;stroke-linecap:round}
+
+/* highlighter, straight from the portfolio */
+.intro>div>p strong{
+  font-weight:400;color:var(--ink);
+  background:linear-gradient(transparent 62%,var(--mustard) 62%);
+}
+:root[data-theme="dark"] .intro>div>p strong{background:linear-gradient(transparent 62%,rgba(255,197,61,.35) 62%)}
+
+/* tape on the "currently" card, plus a little stamp */
+.side-card{position:relative;transition:transform .2s ease,box-shadow .2s ease}
+.side-card:hover{transform:rotate(0) translateY(-3px);box-shadow:var(--shadow)}
+.side-card::before{
+  content:"";position:absolute;top:-12px;left:50%;width:92px;height:24px;
+  transform:translateX(-50%) rotate(-3deg);
+  background:rgba(255,197,61,.75);
+  border-left:2px dashed rgba(34,33,58,.22);border-right:2px dashed rgba(34,33,58,.22);
+  z-index:2;
+}
+:root[data-theme="dark"] .side-card::before{background:rgba(255,197,61,.5)}
+.side-card::after{
+  content:"no accounts";position:absolute;right:-14px;bottom:-14px;
+  border:2px solid var(--tomato);color:var(--tomato);background:var(--card);
+  font-family:var(--mono);font-size:8.5px;letter-spacing:.13em;text-transform:uppercase;
+  padding:4px 7px;transform:rotate(-7deg);z-index:2;
+}
+
+/* the moving strip of press notices */
+.tape-strip{
+  margin:36px 0 0;padding:8px 0;overflow:hidden;
+  background:var(--mustard);color:#22213A;
+  border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);
+  transform:rotate(-.35deg);
+}
+.tape-strip .track{
+  display:flex;width:max-content;white-space:nowrap;
+  animation:tapeMove 34s linear infinite;
+}
+.tape-strip span{
+  font-family:var(--mono);font-size:10.5px;font-weight:700;
+  letter-spacing:.16em;text-transform:uppercase;padding:0 18px;
+}
+.tape-strip span::after{content:"✂";margin-left:36px}
+@keyframes tapeMove{to{transform:translateX(-50%)}}
+
+/* post rows: numbers warm up, the arrow jumps, the title gets a wavy pen line */
+.post-row a{transition:transform .18s ease}
+.post-row a:hover{transform:translateX(3px)}
+.post-row .no{color:var(--tomato);opacity:.8;transition:color .18s ease,opacity .18s ease}
+.post-row a:hover .no{opacity:1}
+.post-row a:hover h3{
+  text-decoration:underline;text-decoration-style:wavy;
+  text-decoration-color:var(--tomato);text-decoration-thickness:2px;text-underline-offset:5px;
+}
+.post-row a:hover .arrow{transform:translate(4px,-4px) rotate(-8deg)}
+.stamp-mini{
+  display:inline-block;border:2px solid var(--tomato);color:var(--tomato);
+  font-family:var(--mono);font-size:8px;letter-spacing:.12em;text-transform:uppercase;
+  padding:2px 5px;transform:rotate(-6deg);margin-bottom:7px;
+}
+.when .stamp-mini{display:block;width:max-content;margin-left:auto;margin-bottom:6px}
+
+/* a field-note stamp on articles */
+.article-head{position:relative}
+.article-head::after{
+  content:"hand-set";position:absolute;right:0;top:56px;
+  border:2px solid var(--tomato);color:var(--tomato);background:var(--card);
+  font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;
+  padding:6px 10px;transform:rotate(8deg);opacity:.9;
+}
+@media (max-width:900px){.article-head::after{display:none}}
+
+/* tape holding the prints down */
+figure.print{position:relative}
+figure.print::before,figure.print::after{
+  content:"";position:absolute;top:-11px;width:72px;height:22px;z-index:2;
+  background:rgba(255,197,61,.72);
+  border-left:2px dashed var(--line);border-right:2px dashed var(--line);
+}
+figure.print::before{left:22px;transform:rotate(-4deg)}
+figure.print::after{right:22px;transform:rotate(3deg);background:rgba(43,75,255,.14)}
+:root[data-theme="dark"] figure.print::before{background:rgba(255,197,61,.5)}
+
+/* margin notes get a pen arrow */
+.margin::before{content:"↳ ";color:var(--tomato);font-family:var(--serif);font-size:1.05em}
+
+/* tear here before the colophon line */
+.article-foot{position:relative;border-top:2px dashed var(--line)}
+.article-foot::after{
+  content:"✂";position:absolute;right:0;top:-13px;
+  background:var(--paper);color:var(--tomato);font-size:14px;line-height:1;padding:0 6px;
+}
+
+/* a stamp on the imprint */
+.foot-top>div:first-child{position:relative}
+.foot-top>div:first-child::after{
+  content:"free forever";display:inline-block;margin-top:12px;
+  border:2px solid var(--tomato);color:var(--tomato);
+  font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;
+  padding:4px 8px;transform:rotate(-5deg);
+}
+
+/* things arrive rather than appear */
+.reveal{transition:opacity .65s ease,translate .65s ease}
+.reveal.instant{transition:none}
+@media (scripting:enabled){.reveal:not(.in){opacity:0;translate:0 16px}}
+.post-row:nth-child(2){transition-delay:.05s}
+.post-row:nth-child(3){transition-delay:.1s}
+.post-row:nth-child(4){transition-delay:.15s}
+
+@media (prefers-reduced-motion:reduce){
+  .tape-strip .track{animation:none}
+  .side-card:hover{transform:rotate(.6deg)}
+}
+
+@media print{
+  body{background-image:none}
+  .tape-strip,.stamp-mini,.side-card::before,.side-card::after,
+  .article-head::after,figure.print::before,figure.print::after,
+  .article-foot::after,.foot-top>div:first-child::after{display:none!important}
+  .article-foot{border-top:1px solid #999}
+  .reveal{opacity:1!important;translate:none!important}
 }

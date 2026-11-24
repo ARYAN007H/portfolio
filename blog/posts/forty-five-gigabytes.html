@@ -75,7 +75,7 @@
 </header>
 
 <main id="main" class="wrap">
-  <header class="article-head">
+  <header class="article-head reveal">
     <p class="kicker">Sheet No. 03 · Field note</p>
     <h1>Forty-five gigabytes, <em>three logins</em></h1>
     <p class="dek">Why Cloudy exists, and why the installers were more work than the app.</p>
@@ -106,7 +106,7 @@
 
       <p>What I actually wanted was a view, not a platform. No sync daemon, no virtual filesystem, no clever background magic. If I need a file, I open the app, find it, and download it. That's it. The feature list is short on purpose.</p>
 
-      <figure class="print">
+      <figure class="print reveal">
         <img src="../assets/img/cloudy-accounts.jpg" width="1280" height="699" alt="Cloudy's accounts pool, showing multiple Google accounts combined into one storage view." loading="lazy" decoding="async">
         <figcaption><span>The accounts pool. Real capture from v0.1.0.</span><span>Print № 02</span></figcaption>
       </figure>
@@ -134,11 +134,11 @@
     </div>
 
     <aside aria-label="Margin notes">
-      <p class="margin">
+      <p class="margin reveal">
         15 × 3 = 45. I did this math in a notes app at 1 a.m. and treated it as a product insight.
         <span class="mono">— origin story</span>
       </p>
-      <p class="margin">
+      <p class="margin reveal">
         The macOS build is the one I can't test properly. If it breaks, tell me. I'll believe you.
         <span class="mono">— known unknown</span>
       </p>
@@ -150,7 +150,7 @@
     </div>
   </div>
 
-  <nav class="prevnext" aria-label="More sheets">
+  <nav class="prevnext reveal" aria-label="More sheets">
     <a href="the-catalogue-was-the-easy-part.html"><span>Previous sheet</span><strong>← The catalogue was the easy part</strong></a>
     <a href="free-forever.html"><span>Next sheet</span><strong>Free forever is a constraint →</strong></a>
   </nav>
@@ -188,6 +188,23 @@
     paint(t);try{localStorage.setItem('offcuts-theme',t);}catch(e){}
   });
   var y=document.getElementById('year');if(y)y.textContent=new Date().getFullYear();
+})();
+</script>
+
+<script>
+(function(){
+  var els=[].slice.call(document.querySelectorAll('.reveal'));
+  function show(el){ el.classList.add('in'); }
+  if(!('IntersectionObserver' in window)){ els.forEach(show); return; }
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ show(e.target); io.unobserve(e.target); }
+    });
+  },{threshold:.08});
+  els.forEach(function(el){
+    if(el.getBoundingClientRect().top < window.innerHeight){ el.classList.add('instant'); show(el); }
+    else { io.observe(el); }
+  });
 })();
 </script>
 </body>

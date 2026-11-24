@@ -11,9 +11,9 @@
 <meta property="og:site_name" content="Offcuts">
 <meta property="og:title" content="Archive — Offcuts">
 <meta property="og:description" content="Every sheet from Offcuts, by date.">
-<link rel="canonical" href="https://blog.humon.is-a.dev/archive.html">
+<link rel="canonical" href="https://blog.humon.is-a.dev/archive">
 <meta name="twitter:card" content="summary_large_image">
-<meta property="og:url" content="https://blog.humon.is-a.dev/archive.html">
+<meta property="og:url" content="https://blog.humon.is-a.dev/archive">
 <meta property="og:image" content="https://blog.humon.is-a.dev/assets/og-card.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -53,34 +53,35 @@
 </header>
 
 <main id="main" class="wrap">
-  <header class="page-head">
+  <header class="page-head reveal">
     <h1>The <em>archive</em></h1>
     <p>Everything in the drawer, newest first. This one opened in September 2026, so it's short. It'll get longer or it won't.</p>
+    <span class="page-stamp" aria-hidden="true">complete index</span>
   </header>
 
   <p class="year">2026</p>
-  <div class="arch-row">
-    <time datetime="2026-11-18">18 Nov 2026</time>
+  <div class="arch-row reveal">
+    <span class="no">01</span><time datetime="2026-11-18">18 Nov 2026</time>
     <a href="posts/a-very-honest-program.html">A very honest program</a>
     <span class="rt">6 min</span>
   </div>
-  <div class="arch-row">
-    <time datetime="2026-11-02">02 Nov 2026</time>
+  <div class="arch-row reveal">
+    <span class="no">02</span><time datetime="2026-11-02">02 Nov 2026</time>
     <a href="posts/the-catalogue-was-the-easy-part.html">The catalogue was the easy part</a>
     <span class="rt">5 min</span>
   </div>
-  <div class="arch-row">
-    <time datetime="2026-10-22">22 Oct 2026</time>
+  <div class="arch-row reveal">
+    <span class="no">03</span><time datetime="2026-10-22">22 Oct 2026</time>
     <a href="posts/forty-five-gigabytes.html">Forty-five gigabytes, three logins</a>
     <span class="rt">4 min</span>
   </div>
-  <div class="arch-row">
-    <time datetime="2026-09-14">14 Sep 2026</time>
+  <div class="arch-row reveal">
+    <span class="no">04</span><time datetime="2026-09-14">14 Sep 2026</time>
     <a href="posts/free-forever.html">Free forever is a constraint</a>
     <span class="rt">3 min</span>
   </div>
 
-  <div class="note-strip">
+  <div class="note-strip reveal">
     <span>Before this, there were no sheets. The projects were the writing.</span>
     <a href="https://humon.is-a.dev/">See the catalogue ↗</a>
   </div>
@@ -118,6 +119,23 @@
     paint(t);try{localStorage.setItem('offcuts-theme',t);}catch(e){}
   });
   var y=document.getElementById('year');if(y)y.textContent=new Date().getFullYear();
+})();
+</script>
+
+<script>
+(function(){
+  var els=[].slice.call(document.querySelectorAll('.reveal'));
+  function show(el){ el.classList.add('in'); }
+  if(!('IntersectionObserver' in window)){ els.forEach(show); return; }
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ show(e.target); io.unobserve(e.target); }
+    });
+  },{threshold:.08});
+  els.forEach(function(el){
+    if(el.getBoundingClientRect().top < window.innerHeight){ el.classList.add('instant'); show(el); }
+    else { io.observe(el); }
+  });
 })();
 </script>
 </body>
