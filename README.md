@@ -12,7 +12,8 @@ A static portfolio styled as a riso-printed catalogue: ink on paper, with a fron
 ├── script.js           # theme, filter, tilt, lightbox, nav state
 ├── favicon.svg
 ├── assets/             # fonts and screenshots (real captures, mocks are labelled)
-└── projects/*.html     # one spec sheet per project
+├── projects/*.html     # one spec sheet per project
+└── blog/               # "Offcuts" — a small hand-written blog (own fonts/assets)
 ```
 
 ## Run locally
@@ -20,6 +21,7 @@ A static portfolio styled as a riso-printed catalogue: ink on paper, with a fron
 ```bash
 python3 -m http.server 8001
 # open http://localhost:8001
+# blog: http://localhost:8001/blog/
 ```
 
 ## Editing
@@ -29,8 +31,8 @@ python3 -m http.server 8001
 - Bump the `?v=` query on `style.css` and `script.js` in every page when you change them, so browsers fetch the new files.
 
 ## Deploying
-just a static deployment on github pages.
-The site is served as-is by GitHub Pages (`.nojekyll` is included).
+
+Just a static deployment: served as-is by GitHub Pages (`.nojekyll` is included) and by Cloudflare Pages at `humon.pages.dev`. The blog has its own Pages project rooted at `blog/`, served at `blog.humon.is-a.dev` once the is-a.dev records are live.
 
 ## Data
 

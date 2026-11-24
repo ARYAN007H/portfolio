@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+# No sitemap. Four pages and a feed; you can find them.

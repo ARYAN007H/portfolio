@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>try{if(localStorage.getItem("offcuts-theme")==="dark")document.documentElement.dataset.theme="dark"}catch(e){}</script>
+<title>Forty-five gigabytes, three logins — Offcuts</title>
+<meta name="description" content="Why Cloudy exists, and why the installers were more work than the app.">
+<meta name="theme-color" content="#FBF7ED">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Offcuts">
+<meta property="og:title" content="Forty-five gigabytes, three logins">
+<meta property="og:description" content="Why Cloudy exists, and why the installers were more work than the app.">
+<meta name="twitter:card" content="summary">
+<link rel="canonical" href="https://blog.humon.is-a.dev/posts/forty-five-gigabytes.html">
+<link rel="alternate" type="application/rss+xml" title="Offcuts — RSS" href="../feed.xml">
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../assets/fonts/fraunces-normal-400.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../assets/fonts/fraunces-normal-900.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../assets/fonts/spacemono-normal-400.woff2">
+<link rel="stylesheet" href="../style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","headline":"Forty-five gigabytes, three logins","datePublished":"2026-10-22","author":{"@type":"Person","name":"Aryan"},"url":"https://blog.humon.is-a.dev/posts/forty-five-gigabytes.html"}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to the writing</a>
+
+<header class="mast wrap">
+  <div class="mast-rule">
+    <span>An occasional sheet from Aryan™ Press</span>
+    <span>Sheet No. 03</span>
+    <span>India · free</span>
+  </div>
+  <div class="mast-main">
+    <a class="wordmark" href="../index.html">Offcuts<span>™</span><span class="cut">✂</span></a>
+    <p class="mast-note">scraps from<br>the press floor
+      <svg viewBox="0 0 90 18" aria-hidden="true"><path d="M2 13 C 22 4, 38 15, 58 8 S 82 4, 88 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </p>
+  </div>
+  <nav class="nav" aria-label="Primary">
+    <a href="../index.html">Writing</a>
+    <a href="../archive.html">Archive</a>
+    <a href="../colophon.html">Colophon</a>
+    <a class="push" href="https://humon.is-a.dev/">Portfolio ↗</a>
+    <a class="rss" href="../feed.xml">RSS</a>
+    <button class="theme-btn" id="themeBtn" type="button" aria-pressed="false">☾ lights off</button>
+  </nav>
+</header>
+
+<main id="main" class="wrap">
+  <header class="article-head">
+    <p class="kicker">Sheet No. 03 · Field note</p>
+    <h1>Forty-five gigabytes, <em>three logins</em></h1>
+    <p class="dek">Why Cloudy exists, and why the installers were more work than the app.</p>
+    <div class="byline">
+      <span>By <b>Aryan</b></span>
+      <span><time datetime="2026-10-22">22 Oct 2026</time></span>
+      <span>4 min</span>
+      <span>Filed under: Rust, storage</span>
+    </div>
+  </header>
+
+  <div class="article">
+    <div class="prose">
+      <p>Every Google account comes with 15GB free. I have three. That's 45GB, which sounds like plenty until you try to find a file you saved two years ago and realise it's in the account you're not currently logged into.</p>
+
+      <p>This is a very small problem that produces a very large amount of annoyance. You log out, log in, wait for the security prompt, forget which account owns the folder, log out again. The storage isn't the issue. The seams between the accounts are the issue.</p>
+
+      <p>Cloudy is my attempt to remove the seams. One desktop app, one file view, every Google account you've added pooled together. Written in Rust, talking to the Drive API, with the kind of local-first UI that doesn't ask you to open a browser tab to see your own files.</p>
+
+      <aside class="margin">
+        The app is called Cloudy. The joke is that the important part runs on your machine.
+        <span class="mono">— naming is hard</span>
+      </aside>
+
+      <h2>The app was the <em>fun part</em></h2>
+
+      <p>The core is not complicated: authenticate each account, list files, normalise the results, show them in one place. Rust makes the boring parts pleasant. The Drive API makes the pleasant parts boring. I spent most of the first version arguing with pagination and file IDs.</p>
+
+      <p>What I actually wanted was a view, not a platform. No sync daemon, no virtual filesystem, no clever background magic. If I need a file, I open the app, find it, and download it. That's it. The feature list is short on purpose.</p>
+
+      <figure class="print">
+        <img src="../assets/img/cloudy-accounts.jpg" width="1280" height="699" alt="Cloudy's accounts pool, showing multiple Google accounts combined into one storage view." loading="lazy" decoding="async">
+        <figcaption><span>The accounts pool. Real capture from v0.1.0.</span><span>Print № 02</span></figcaption>
+      </figure>
+
+      <h2>Then the <em>installers</em></h2>
+
+      <p>Shipping cross-platform is a promise you make in a README and pay for in a release folder. v0.1.0 went out with an AppImage, a .deb, an .rpm, a Windows installer, an MSI, and a macOS .dmg. Six formats. Six chances to discover that "cross-platform" means six slightly different definitions of where a file is allowed to live.</p>
+
+      <p>The app took the interesting weeks. The packaging took the weeks I don't remember. There is no applause for an AppImage that actually runs on someone else's distro, but it is the difference between a repo and a release.</p>
+
+      <p>I've started to think of installers as the honesty layer. Anyone can get a binary to run on their own machine. Getting it to run on a machine you've never seen is the actual test.</p>
+
+      <blockquote><p>A download link is a promise. The installer is where you find out if you meant it.</p></blockquote>
+
+      <h2>Why <em>v0.1.0</em></h2>
+
+      <p>Because it does one thing. It pools storage from multiple accounts and lets you browse it. That's the whole product. Calling it 1.0 would be a lie about maturity, and calling it a beta would be a lie about intent. v0.1.0 is honest: early, usable, and not pretending to be a replacement for Drive.</p>
+
+      <p>The next version is mostly about the boring edges: better error messages when a token expires, a clearer transfer queue, and a way to tell which account a file came from without opening it. None of that is exciting. All of it is the difference between a demo and a tool you keep installed.</p>
+
+      <p>If you have three accounts and a folder you can't find, it's at <a href="https://aryan007h.github.io/cloudy/" target="_blank" rel="noopener">aryan007h.github.io/cloudy</a>. Bring your own logins. I don't want them.</p>
+
+      <p class="endmark">— 30 —</p>
+      <span class="sign">— Aryan</span>
+    </div>
+
+    <aside aria-label="Margin notes">
+      <p class="margin">
+        15 × 3 = 45. I did this math in a notes app at 1 a.m. and treated it as a product insight.
+        <span class="mono">— origin story</span>
+      </p>
+      <p class="margin">
+        The macOS build is the one I can't test properly. If it breaks, tell me. I'll believe you.
+        <span class="mono">— known unknown</span>
+      </p>
+    </aside>
+
+    <div class="article-foot">
+      <span>Filed 22 Oct 2026 · 4 min read</span>
+      <span><a href="../index.html">← All sheets</a></span>
+    </div>
+  </div>
+
+  <nav class="prevnext" aria-label="More sheets">
+    <a href="the-catalogue-was-the-easy-part.html"><span>Previous sheet</span><strong>← The catalogue was the easy part</strong></a>
+    <a href="free-forever.html"><span>Next sheet</span><strong>Free forever is a constraint →</strong></a>
+  </nav>
+</main>
+
+<footer class="foot wrap">
+  <div class="foot-top">
+    <div>
+      <h2>Offcuts</h2>
+      <p>An imprint of Aryan™ Press. Set in Fraunces &amp; Space Mono,<br>printed on pixels. Served by Cloudflare Pages.</p>
+      <div class="barcode" aria-hidden="true"></div>
+    </div>
+    <div class="foot-links">
+      <a href="https://humon.is-a.dev/">Portfolio</a>
+      <a href="https://github.com/ARYAN007H" target="_blank" rel="noopener">GitHub ↗</a>
+      <a href="https://instagram.com/im.humon0_0" target="_blank" rel="noopener">Instagram ↗</a>
+      <a href="mailto:aryan.chaudhary.akb@gmail.com">Email</a>
+      <a href="../feed.xml">RSS</a>
+    </div>
+  </div>
+  <div class="fine">
+    <span>© <span id="year">2026</span> Aryan™ Press</span>
+    <span>No analytics. No cookies. No accounts.</span>
+    <span>Hand-written HTML · no build step</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var b=document.getElementById('themeBtn'),d=document.documentElement;
+  function paint(t){d.dataset.theme=t;b.setAttribute('aria-pressed',t==='dark');b.textContent=t==='dark'?'☀ lights on':'☾ lights off';}
+  try{paint(localStorage.getItem('offcuts-theme')==='dark'?'dark':'light');}catch(e){paint('light');}
+  b.addEventListener('click',function(){
+    var t=d.dataset.theme==='dark'?'light':'dark';
+    paint(t);try{localStorage.setItem('offcuts-theme',t);}catch(e){}
+  });
+  var y=document.getElementById('year');if(y)y.textContent=new Date().getFullYear();
+})();
+</script>
+</body>
+</html>

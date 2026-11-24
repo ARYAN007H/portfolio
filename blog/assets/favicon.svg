@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" fill="#FBF7ED"/>
+  <rect x="3" y="3" width="58" height="58" fill="none" stroke="#22213A" stroke-width="2"/>
+  <text x="30" y="47" font-family="Georgia, serif" font-size="40" font-weight="700" fill="#2B4BFF" text-anchor="middle">O</text>
+  <path d="M44 12 L58 26" stroke="#FF5A3C" stroke-width="2" stroke-dasharray="3 3"/>
+  <circle cx="45" cy="13" r="2" fill="#FF5A3C"/>
+  <circle cx="57" cy="25" r="2" fill="#FF5A3C"/>
+</svg>

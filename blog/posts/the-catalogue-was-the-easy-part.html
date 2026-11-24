@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>try{if(localStorage.getItem("offcuts-theme")==="dark")document.documentElement.dataset.theme="dark"}catch(e){}</script>
+<title>The catalogue was the easy part — Offcuts</title>
+<meta name="description" content="Twelve spec sheets, one static site, and the small lies we tell about launch week.">
+<meta name="theme-color" content="#FBF7ED">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Offcuts">
+<meta property="og:title" content="The catalogue was the easy part">
+<meta property="og:description" content="Twelve spec sheets, one static site, and the small lies we tell about launch week.">
+<meta name="twitter:card" content="summary">
+<link rel="canonical" href="https://blog.humon.is-a.dev/posts/the-catalogue-was-the-easy-part.html">
+<link rel="alternate" type="application/rss+xml" title="Offcuts — RSS" href="../feed.xml">
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../assets/fonts/fraunces-normal-400.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../assets/fonts/fraunces-normal-900.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../assets/fonts/spacemono-normal-400.woff2">
+<link rel="stylesheet" href="../style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","headline":"The catalogue was the easy part","datePublished":"2026-11-02","author":{"@type":"Person","name":"Aryan"},"url":"https://blog.humon.is-a.dev/posts/the-catalogue-was-the-easy-part.html"}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to the writing</a>
+
+<header class="mast wrap">
+  <div class="mast-rule">
+    <span>An occasional sheet from Aryan™ Press</span>
+    <span>Sheet No. 02</span>
+    <span>India · free</span>
+  </div>
+  <div class="mast-main">
+    <a class="wordmark" href="../index.html">Offcuts<span>™</span><span class="cut">✂</span></a>
+    <p class="mast-note">scraps from<br>the press floor
+      <svg viewBox="0 0 90 18" aria-hidden="true"><path d="M2 13 C 22 4, 38 15, 58 8 S 82 4, 88 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </p>
+  </div>
+  <nav class="nav" aria-label="Primary">
+    <a href="../index.html">Writing</a>
+    <a href="../archive.html">Archive</a>
+    <a href="../colophon.html">Colophon</a>
+    <a class="push" href="https://humon.is-a.dev/">Portfolio ↗</a>
+    <a class="rss" href="../feed.xml">RSS</a>
+    <button class="theme-btn" id="themeBtn" type="button" aria-pressed="false">☾ lights off</button>
+  </nav>
+</header>
+
+<main id="main" class="wrap">
+  <header class="article-head">
+    <p class="kicker">Sheet No. 02 · Making-of</p>
+    <h1>The catalogue was the <em>easy part</em></h1>
+    <p class="dek">Twelve spec sheets, one static site, and the small lies we tell about launch week.</p>
+    <div class="byline">
+      <span>By <b>Aryan</b></span>
+      <span><time datetime="2026-11-02">02 Nov 2026</time></span>
+      <span>5 min</span>
+      <span>Filed under: design, the web</span>
+    </div>
+  </header>
+
+  <div class="article">
+    <div class="prose">
+      <p>Twelve projects is a stupid number to put on one page. Not because twelve is a lot, but because each one wants a different sentence. A chess engine wants a number. A music player wants a feeling. A gallery app wants a screenshot and an apology for the build times.</p>
+
+      <p>The portfolio started as a PDF. Then it became a website that looked like a PDF, which is a different and much more stubborn thing. I wanted it to feel like a catalogue you could pull a card out of, not another dark hero section with a gradient and a "let's build together" button.</p>
+
+      <p>So every project got a sheet: a kicker, a spec table, a short argument for why it exists, screenshots, and — where a release exists — tear-off download slips. The whole thing is plain HTML and CSS. There is no build step, no framework, and no CMS. If the internet survives, the site should still open in ten years.</p>
+
+      <h2>Half of it was <em>remembering</em></h2>
+
+      <p>I thought the hard part would be the design. It wasn't. The hard part was going back through twelve repos and working out what each one actually did, which screenshots were real, which releases still existed, and which README claims had quietly stopped being true.</p>
+
+      <p>That's the part nobody warns you about. A portfolio is an audit. You sit down to show your work and discover that three projects are half-finished, one has a broken install link, and the one you're proudest of has a screenshot from a version that no longer runs.</p>
+
+      <p>I fixed the links. I labelled the mocks. I deleted a sentence about a feature that never shipped. The catalogue got better because the catalogue made me check.</p>
+
+      <aside class="margin">
+        The barcode in the footer is CSS. It scans as nothing. I like it anyway.
+        <span class="mono">— print shop logic</span>
+      </aside>
+
+      <h2>Static, and <em>stubborn about it</em></h2>
+
+      <p>The site is static on purpose. The only moving part is a small script that asks the GitHub Releases API for version numbers and download links. When the API is slow or rate-limited, the HTML already contains a fallback. No spinner, no skeleton, no "something went wrong." The page works before the network answers.</p>
+
+      <p>Two small decisions I'd make again:</p>
+      <ul>
+        <li><strong>Self-hosted fonts.</strong> Fraunces, Space Mono, and Caveat, subset to Latin, served from the same folder. It keeps the type consistent and removes a third-party request from the critical path.</li>
+        <li><strong>Cache-busting by hand.</strong> When the CSS changes, the version in the <code>?v=</code> query changes. It is not elegant. It is one line and it always works.</li>
+      </ul>
+
+      <p>The thing I didn't expect was how much the paper metaphor would constrain the writing. A spec sheet can't ramble. It has a column for language, stars, release, date. It forces you to say what the thing is before you say why it matters. I've started writing READMEs the same way.</p>
+
+      <blockquote><p>A catalogue doesn't make the work better. It makes you honest about the work.</p></blockquote>
+
+      <h2>The receipt, <em>not the work</em></h2>
+
+      <p>"Price: Free" is in the masthead as a joke, but it's also the standing order. No accounts, no paywall, no tracking. The portfolio is the receipt for that promise: here are the things, here is what they cost you, here is where to get them. The design is loud because the offer is quiet.</p>
+
+      <p>I still think the catalogue was the easy part. Building twelve things took three years. Explaining them took a month. But the explaining is what turned a folder of repos into something I can hand to another person without saying "uh, start with the pinned ones."</p>
+
+      <p>If you're putting off a portfolio because the projects aren't ready: make the sheets anyway. The gaps are useful. They tell you what to finish.</p>
+
+      <p class="endmark">— 30 —</p>
+      <span class="sign">— Aryan</span>
+    </div>
+
+    <aside aria-label="Margin notes">
+      <p class="margin">
+        The first draft had fourteen projects. Two of them were ideas with a logo. They did not get sheets.
+        <span class="mono">— edit ruthlessly</span>
+      </p>
+      <p class="margin">
+        Every screenshot is a real capture. The mocks are labelled. This is a low bar that most portfolios clear by accident.
+        <span class="mono">— trust, cheaply</span>
+      </p>
+    </aside>
+
+    <div class="article-foot">
+      <span>Filed 02 Nov 2026 · 5 min read</span>
+      <span><a href="../index.html">← All sheets</a></span>
+    </div>
+  </div>
+
+  <nav class="prevnext" aria-label="More sheets">
+    <a href="a-very-honest-program.html"><span>Previous sheet</span><strong>← A very honest program</strong></a>
+    <a href="forty-five-gigabytes.html"><span>Next sheet</span><strong>Forty-five gigabytes, three logins →</strong></a>
+  </nav>
+</main>
+
+<footer class="foot wrap">
+  <div class="foot-top">
+    <div>
+      <h2>Offcuts</h2>
+      <p>An imprint of Aryan™ Press. Set in Fraunces &amp; Space Mono,<br>printed on pixels. Served by Cloudflare Pages.</p>
+      <div class="barcode" aria-hidden="true"></div>
+    </div>
+    <div class="foot-links">
+      <a href="https://humon.is-a.dev/">Portfolio</a>
+      <a href="https://github.com/ARYAN007H" target="_blank" rel="noopener">GitHub ↗</a>
+      <a href="https://instagram.com/im.humon0_0" target="_blank" rel="noopener">Instagram ↗</a>
+      <a href="mailto:aryan.chaudhary.akb@gmail.com">Email</a>
+      <a href="../feed.xml">RSS</a>
+    </div>
+  </div>
+  <div class="fine">
+    <span>© <span id="year">2026</span> Aryan™ Press</span>
+    <span>No analytics. No cookies. No accounts.</span>
+    <span>Hand-written HTML · no build step</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var b=document.getElementById('themeBtn'),d=document.documentElement;
+  function paint(t){d.dataset.theme=t;b.setAttribute('aria-pressed',t==='dark');b.textContent=t==='dark'?'☀ lights on':'☾ lights off';}
+  try{paint(localStorage.getItem('offcuts-theme')==='dark'?'dark':'light');}catch(e){paint('light');}
+  b.addEventListener('click',function(){
+    var t=d.dataset.theme==='dark'?'light':'dark';
+    paint(t);try{localStorage.setItem('offcuts-theme',t);}catch(e){}
+  });
+  var y=document.getElementById('year');if(y)y.textContent=new Date().getFullYear();
+})();
+</script>
+</body>
+</html>

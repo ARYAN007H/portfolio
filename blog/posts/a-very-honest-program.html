@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>try{if(localStorage.getItem("offcuts-theme")==="dark")document.documentElement.dataset.theme="dark"}catch(e){}</script>
+<title>A very honest program — Offcuts</title>
+<meta name="description" content="A chess engine will not pretend your move was good. Notes on perft, a million nodes a second, and the comfort of being told you're wrong.">
+<meta name="theme-color" content="#FBF7ED">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Offcuts">
+<meta property="og:title" content="A very honest program">
+<meta property="og:description" content="A chess engine will not pretend your move was good.">
+<meta name="twitter:card" content="summary">
+<link rel="canonical" href="https://blog.humon.is-a.dev/posts/a-very-honest-program.html">
+<link rel="alternate" type="application/rss+xml" title="Offcuts — RSS" href="../feed.xml">
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../assets/fonts/fraunces-normal-400.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../assets/fonts/fraunces-normal-900.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../assets/fonts/spacemono-normal-400.woff2">
+<link rel="stylesheet" href="../style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","headline":"A very honest program","datePublished":"2026-11-18","author":{"@type":"Person","name":"Aryan"},"url":"https://blog.humon.is-a.dev/posts/a-very-honest-program.html"}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to the writing</a>
+
+<header class="mast wrap">
+  <div class="mast-rule">
+    <span>An occasional sheet from Aryan™ Press</span>
+    <span>Sheet No. 01</span>
+    <span>India · free</span>
+  </div>
+  <div class="mast-main">
+    <a class="wordmark" href="../index.html">Offcuts<span>™</span><span class="cut">✂</span></a>
+    <p class="mast-note">scraps from<br>the press floor
+      <svg viewBox="0 0 90 18" aria-hidden="true"><path d="M2 13 C 22 4, 38 15, 58 8 S 82 4, 88 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </p>
+  </div>
+  <nav class="nav" aria-label="Primary">
+    <a href="../index.html">Writing</a>
+    <a href="../archive.html">Archive</a>
+    <a href="../colophon.html">Colophon</a>
+    <a class="push" href="https://humon.is-a.dev/">Portfolio ↗</a>
+    <a class="rss" href="../feed.xml">RSS</a>
+    <button class="theme-btn" id="themeBtn" type="button" aria-pressed="false">☾ lights off</button>
+  </nav>
+</header>
+
+<main id="main" class="wrap">
+  <header class="article-head">
+    <p class="kicker">Sheet No. 01 · Field note</p>
+    <h1>A very honest <em>program</em></h1>
+    <p class="dek">A chess engine will not pretend your move was good. That turns out to be the nicest thing about building one.</p>
+    <div class="byline">
+      <span>By <b>Aryan</b></span>
+      <span><time datetime="2026-11-18">18 Nov 2026</time></span>
+      <span>6 min</span>
+      <span>Filed under: chess, TypeScript</span>
+    </div>
+  </header>
+
+  <div class="article">
+    <div class="prose">
+      <p>Most software is polite to a fault. A form tells you it saved when it didn't. A progress bar sits at 99% because 100% would mean admitting something finished. A recommendation engine calls a thing "for you" when it means "for the graph."</p>
+
+      <p>Chess0 has no manners. It is a chess engine written from nothing in TypeScript, and when I make a bad move it replies with a number. The number is the evaluation, and it is usually negative. There is no animation, no encouraging copy, no little mascot. Just a board, a clock, and the truth.</p>
+
+      <p>That was the whole reason I started it. I wanted a project where correctness was not a matter of taste.</p>
+
+      <h2>No libraries, <em>on purpose</em></h2>
+
+      <p>There is a JavaScript chess library called chess.js. It handles the rules, the move generation, the weird edge cases, and it would have saved me a month. I didn't use it. I also didn't use an engine library, a search library, or an opening book. The only thing the browser gives me is a canvas, a Web Worker, and a keyboard.</p>
+
+      <p>So the rules are mine: castling rights, en passant, promotion, pins, checks, the fifty-move rule, threefold repetition. Every one of them is a small argument with yourself about what "the same position" actually means. You think you understand chess until you have to write down what makes two positions identical.</p>
+
+      <p>The search is three generations of alpha-beta, which sounds grander than it is. The first version was slow and correct. The second was faster and wrong in a new way. The third is the one that ships: a Web Worker doing about a million nodes per second, while the page stays smooth because the main thread is not invited.</p>
+
+      <aside class="margin">
+        Perft(5) from the starting position is 4,865,609. I know that number the way other people know their phone number.
+        <span class="mono">— margin note, 3 a.m.</span>
+      </aside>
+
+      <h2>The boring way to <em>earn trust</em></h2>
+
+      <p>Perft is the least glamorous idea in chess programming. You take a position, generate every legal move to a certain depth, and count the leaf nodes. Then you compare your count to the known number. If it matches at depth six, your move generator is probably not lying to you.</p>
+
+      <p>I ran perft until the numbers matched. Then I ran it again after every change that touched move generation, which is the programming equivalent of checking your pockets before leaving the house. It is tedious, and it is the only reason the rest of the engine is allowed to be clever.</p>
+
+      <p>This is the part that doesn't make it into a launch post. Nobody wants to see a table of node counts. But a chess engine without perft is a demo. With perft, it's a program you can trust with a position you actually care about.</p>
+
+      <blockquote><p>The engine does not care that the board looks nice. That is exactly why I trust it.</p></blockquote>
+
+      <h2>What's still <em>missing</em></h2>
+
+      <p>The NNUE training pipeline is in the repo and not in the product. That's the honest version. A neural evaluation is the next real step, and I'd rather say "in the pipeline" than ship a half-trained network and call it done. There's also no opening book, which means the first eight moves are the engine thinking from first principles like the rest of us.</p>
+
+      <figure class="print">
+        <img src="../assets/img/chess0-poster.jpg" width="900" height="563" alt="Chess0 playing itself in the browser, with the evaluation bar visible." loading="lazy" decoding="async">
+        <figcaption><span>Chess0 playing itself. Real capture, not a mock.</span><span>Print № 01</span></figcaption>
+      </figure>
+
+      <p>The live version runs at <a href="https://aryan007h.github.io/chess0/" target="_blank" rel="noopener">aryan007h.github.io/chess0</a>. No install, no account, no download. You click a piece and the engine tells you what it thinks. Sometimes it thinks you're winning. More often it has a number for you.</p>
+
+      <p>I keep coming back to this project because it's the one that can't be faked. The UI can be pretty and the README can be confident, but the engine either finds the mate or it doesn't. There's a relief in that. Most of the things I build are judged by whether they feel right. This one is judged by whether it is right.</p>
+
+      <p>It is not always right. But it is never polite about it.</p>
+
+      <p class="endmark">— 30 —</p>
+      <span class="sign">— Aryan</span>
+    </div>
+
+    <aside aria-label="Margin notes">
+      <p class="margin">
+        The first version couldn't castle. The second could castle through check. The third is the one you can play.
+        <span class="mono">— keep the failing tests</span>
+      </p>
+      <p class="margin">
+        A million nodes a second is not fast. It is enough. There's a difference, and the difference is a deadline.
+        <span class="mono">— perf note</span>
+      </p>
+    </aside>
+
+    <div class="article-foot">
+      <span>Filed 18 Nov 2026 · 6 min read</span>
+      <span><a href="../index.html">← All sheets</a></span>
+    </div>
+  </div>
+
+  <nav class="prevnext" aria-label="More sheets">
+    <a href="the-catalogue-was-the-easy-part.html"><span>Next sheet</span><strong>The catalogue was the easy part →</strong></a>
+    <a href="../archive.html"><span>Archive</span><strong>Everything, by date →</strong></a>
+  </nav>
+</main>
+
+<footer class="foot wrap">
+  <div class="foot-top">
+    <div>
+      <h2>Offcuts</h2>
+      <p>An imprint of Aryan™ Press. Set in Fraunces &amp; Space Mono,<br>printed on pixels. Served by Cloudflare Pages.</p>
+      <div class="barcode" aria-hidden="true"></div>
+    </div>
+    <div class="foot-links">
+      <a href="https://humon.is-a.dev/">Portfolio</a>
+      <a href="https://github.com/ARYAN007H" target="_blank" rel="noopener">GitHub ↗</a>
+      <a href="https://instagram.com/im.humon0_0" target="_blank" rel="noopener">Instagram ↗</a>
+      <a href="mailto:aryan.chaudhary.akb@gmail.com">Email</a>
+      <a href="../feed.xml">RSS</a>
+    </div>
+  </div>
+  <div class="fine">
+    <span>© <span id="year">2026</span> Aryan™ Press</span>
+    <span>No analytics. No cookies. No accounts.</span>
+    <span>Hand-written HTML · no build step</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var b=document.getElementById('themeBtn'),d=document.documentElement;
+  function paint(t){d.dataset.theme=t;b.setAttribute('aria-pressed',t==='dark');b.textContent=t==='dark'?'☀ lights on':'☾ lights off';}
+  try{paint(localStorage.getItem('offcuts-theme')==='dark'?'dark':'light');}catch(e){paint('light');}
+  b.addEventListener('click',function(){
+    var t=d.dataset.theme==='dark'?'light':'dark';
+    paint(t);try{localStorage.setItem('offcuts-theme',t);}catch(e){}
+  });
+  var y=document.getElementById('year');if(y)y.textContent=new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
