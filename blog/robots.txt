@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-# No sitemap. Four pages and a feed; you can find them.
+Sitemap: https://blog.humon.is-a.dev/sitemap.xml

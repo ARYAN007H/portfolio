@@ -1,0 +1,13 @@
+# Offcuts
+
+> Notes from Aryan™ Press: how the projects are built, what broke, and the decisions that do not fit on a spec sheet.
+
+## Posts
+- [A very honest program](https://blog.humon.is-a.dev/posts/a-very-honest-program): A chess engine will not pretend your move was good. Notes on perft, a million nodes a second, and the comfort of being told you're wrong.
+- [The catalogue was the easy part](https://blog.humon.is-a.dev/posts/the-catalogue-was-the-easy-part): Twelve spec sheets, one static site, and the small lies we tell about launch week.
+- [Forty-five gigabytes, three logins](https://blog.humon.is-a.dev/posts/forty-five-gigabytes): Why Cloudy exists, and why the installers were more work than the app.
+- [Free forever is a constraint](https://blog.humon.is-a.dev/posts/free-forever): No accounts, no paywall, no analytics. The feature that quietly decides all the others.
+
+## Links
+- [Portfolio](https://humon.is-a.dev/): the twelve projects.
+- [RSS](https://blog.humon.is-a.dev/feed.xml)
