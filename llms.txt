@@ -11,7 +11,7 @@
 - [Digital Brain](https://humon.is-a.dev/projects/digital-brain): A digital brain that fetches data from your conversations and processes it locally to build connections and improve context.
 - [Galleria](https://humon.is-a.dev/projects/galleria): An attempt at a good native Linux gallery app — beautiful UI, advanced editing, zero bloat.
 - [Info9](https://humon.is-a.dev/projects/info9): A zero-key, free & open-source intelligence workbench. Five specialist modules, no paid API keys, no accounts.
-- [Music0](https://humon.is-a.dev/projects/music0): Online music streaming for Musico — InnerTube search + yt-dlp playback, on every platform you own.
+- [Music0](https://humon.is-a.dev/projects/music0): Online music streaming in Compose Multiplatform & Rust — InnerTube, JioSaavn & yt-dlp across Android, Linux, macOS and Windows.
 - [Musico](https://humon.is-a.dev/projects/musico): My own music player for Linux — because every player I tried got in the way of the music.
 - [SmollNet](https://humon.is-a.dev/projects/smollnet): NetSentry — a real-time, Dockerized network traffic & anomaly sniffer with a cyberpunk live dashboard.
 - [U&I](https://humon.is-a.dev/projects/uni): A private, exactly-two-people app for couples — the couple app that can't betray its users.
