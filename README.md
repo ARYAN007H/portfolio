@@ -32,7 +32,7 @@ python3 -m http.server 8001
 
 ## Deploying
 
-Just a static deployment: served as-is by GitHub Pages (`.nojekyll` is included) and by Cloudflare Pages at `humon.pages.dev`. The blog has its own Pages project rooted at `blog/`, served at `blog.humon.is-a.dev` once the is-a.dev records are live.
+Just a static deployment: served as-is by GitHub Pages (`.nojekyll` is included) and by Cloudflare Pages at `humon.pages.dev`. The blog has its own Pages project rooted at `blog/`, live at `blog.humon.is-a.dev`; the `/blog/` copy stays as part of the GitHub Pages mirror.
 
 ## Data
 
