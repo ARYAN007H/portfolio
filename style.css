@@ -322,7 +322,7 @@ section[id]{scroll-margin-top:80px}
 .rules .rule{display:flex;gap:16px;padding:16px 0;border-bottom:1px dashed var(--line)}
 .rules .rule:last-child{border-bottom:none}
 .rules .rn{font-family:'Fraunces',Georgia,'Times New Roman',serif;font-weight:900;color:var(--tomato-text);font-size:20px}
-.rules h4{font-family:'Fraunces',Georgia,'Times New Roman',serif;font-size:19px}
+.rules h3{font-family:'Fraunces',Georgia,'Times New Roman',serif;font-size:19px}
 .rules p{font-size:13px;color:var(--ink-soft)}
 @media(max-width:900px){.journal-grid{grid-template-columns:1fr}}
 
