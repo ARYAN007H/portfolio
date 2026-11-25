@@ -1,11 +1,14 @@
 # Cloudflare Pages caching. GitHub Pages ignores this file.
-# Fonts are versionless, so cache them hard; other assets get a week.
-
-/assets/*
-  Cache-Control: public, max-age=604800
+# Fonts are versionless, so cache them hard; screenshots get a week.
 
 /assets/fonts/*
   Cache-Control: public, max-age=31536000, immutable
+
+/assets/screenshots/*
+  Cache-Control: public, max-age=604800
+
+/assets/og-card.png
+  Cache-Control: public, max-age=604800
 
 /fonts.css
   Cache-Control: public, max-age=604800
